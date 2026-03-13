@@ -1,0 +1,50 @@
+name: Release VS Code Extension
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: vscode
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install vsce
+        run: npm install -g @vscode/vsce
+
+      - name: Validate theme JSON
+        run: |
+          python3 -c "import json; json.load(open('themes/warm-burnout-dark.json'))"
+          python3 -c "import json; json.load(open('themes/warm-burnout-light.json'))"
+
+      - name: Package extension
+        run: vsce package
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: "vscode/*.vsix"
+          generate_release_notes: true
+
+      - name: Publish to VS Code Marketplace
+        if: vars.PUBLISH_MARKETPLACE == 'true'
+        run: vsce publish
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}
+
+      - name: Publish to Open VSX
+        if: vars.PUBLISH_OPENVSX == 'true'
+        run: npx ovsx publish *.vsix
+        env:
+          OVSX_PAT: ${{ secrets.OVSX_PAT }}
