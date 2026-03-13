@@ -146,6 +146,12 @@ Light: foreground needs L <= 0.144 for AA.
 2. **Light theme inactive line numbers at 3.35:1**: Intentionally subdued. Active line number is 5.16:1 (AA).
 3. **Terminal bright colors 3.5-4.5:1 on light**: Standard for light themes. Programs primarily use default foreground (9.67:1).
 
+## Publishing
+
+- **Never publish extensions locally** (no `vsce publish`, `ovsx publish`, etc.).
+- All publishing is handled by GitHub Actions workflows triggered by `v*` tags.
+- To release a new version: bump the version in the platform's manifest, commit, create a `v{version}` tag, and push the tag.
+
 ## Rules for All Platforms
 
 ### Design Rules
