@@ -140,17 +140,17 @@ Inspired by materials that age well. Unlike your eyes.
 | Platform | Status | Install |
 |----------|--------|---------|
 | VS Code | Available | [Marketplace](https://marketplace.visualstudio.com/items?itemName=felip3fdl.warm-burnout) |
+| JetBrains | Available | [Marketplace](https://plugins.jetbrains.com/plugin/30694-warm-burnout) |
 | Ghostty | Available | [`ghostty/`](ghostty/) |
-| Zsh | Available | [`zsh/`](zsh/) |
-| Starship | Available | [`starship/`](starship/) |
 | Zed | Available | [`zed/`](zed/) |
-| eza | Available | [`eza/`](eza/) |
-| JetBrains | Available | [`jetbrains/`](jetbrains/) |
 | Neovim | Available | [`nvim/`](nvim/) |
 | Xcode | Available | [`xcode/`](xcode/) |
 | iTerm2 | Available | [`iterm2/`](iterm2/) |
 | Windows Terminal | Available | [`windows-terminal/`](windows-terminal/) |
 | tmux | Available | [`tmux/`](tmux/) |
+| Starship | Available | [`starship/`](starship/) |
+| Zsh | Available | [`zsh/`](zsh/) |
+| eza | Available | [`eza/`](eza/) |
 
 Each platform lives in its own directory with its own README, build process, and release workflow.
 
