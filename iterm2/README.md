@@ -15,12 +15,12 @@ Double-click either `.itermcolors` file to import it directly, or import manuall
 
 After importing, select the preset from the **Color Presets...** dropdown:
 
-- **Warm Burnout Dark** -- for the 3am sessions
-- **Warm Burnout Light** -- for when someone forces you to open the blinds
+- **Warm Burnout Dark**: for the 3am sessions
+- **Warm Burnout Light**: for when someone forces you to open the blinds
 
 ## Verify
 
-Run `ls --color` or any ANSI color test script -- warm browns instead of searing blues.
+Run `ls --color` or any ANSI color test script. Warm browns instead of searing blues.
 
 ## Palette
 

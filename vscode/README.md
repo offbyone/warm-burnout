@@ -2,21 +2,21 @@
 
 The theme for developers who already burned out but still have deadlines.
 
-Built on one premise: your eyes are taking damage and your current theme doesn't care. Warm Burnout does. Fully warm palette, minimal blue light, contrast-audited to clinical standards. Two variants -- **Dark** for the 3am sessions and **Light** for when someone forces you to open the blinds.
+Built on one premise: your eyes are taking damage and your current theme doesn't care. Warm Burnout does. Fully warm palette, minimal blue light, contrast-audited to clinical standards. Two variants: **Dark** for the 3am sessions and **Light** for when someone forces you to open the blinds.
 
 ## Why Your Current Theme Is Hurting You
 
 Most themes look great in screenshots. Then you use them for 14 hours straight and your eyes feel like they've been sandpapered.
 
-The blues, cyans, and purples that make themes look "cool" emit at 450-500nm -- the exact wavelength range that suppresses melatonin, triggers digital eye strain, and makes your ophthalmologist wince. Your theme is literally fighting your body's ability to rest.
+The blues, cyans, and purples that make themes look "cool" emit at 450-500nm, the exact wavelength range that suppresses melatonin, triggers digital eye strain, and makes your ophthalmologist wince. Your theme is fighting your body's ability to rest.
 
-Warm Burnout strips out almost all blue-spectrum syntax colors. What's left is a fully warm palette (550-630nm dominant) that your retinas can survive.
+Warm Burnout strips out almost all blue-spectrum syntax colors, leaving a fully warm palette (550-630nm dominant) that your retinas can survive.
 
 ## Eye Safety Audit
 
 Not vibes. Math.
 
-### Dark -- Every Token AAA
+### Dark: Every Token AAA
 
 Every syntax color meets **WCAG AAA** (>= 7:1 contrast ratio) against the editor background. Every single one. Most themes can't even get comments past 4:1.
 
@@ -33,9 +33,9 @@ Every syntax color meets **WCAG AAA** (>= 7:1 contrast ratio) against the editor
 
 Your comments are readable at 3am. On purpose.
 
-### Light -- AA Minimum, Sepia Cream Background
+### Light: AA Minimum, Sepia Cream Background
 
-The light theme uses `#F5EDE0` -- a warm sepia cream, not white. 14.6% less bright than pure white. Estimated ~4000K color temperature vs white's ~6500K, roughly **40-50% less melatonin suppression** compared to white-background themes.
+The light theme uses `#F5EDE0`, a warm sepia cream, not white. 14.6% less bright than pure white. Estimated ~4000K color temperature vs white's ~6500K, roughly **40-50% less melatonin suppression** compared to white-background themes.
 
 | Role | Color | Ratio | Style |
 |------|-------|-------|-------|
@@ -54,7 +54,7 @@ All 15 syntax tokens pass AA. No exceptions.
 
 ### Background: no pure black, no pure white
 
-The dark background (`#1a1510`) is a warm brown-black. Pure black (#000000) causes **halation** -- a glow/bleed effect around text that affects roughly 33% of the population (those with astigmatism). The warm tint eliminates this.
+The dark background (`#1a1510`) is a warm brown-black. Pure black (#000000) causes **halation**, a glow/bleed effect around text that affects roughly 33% of the population (those with astigmatism). The warm tint eliminates this.
 
 The light background (`#F5EDE0`) is warm sepia cream. No pure white anywhere.
 
@@ -62,19 +62,19 @@ The light background (`#F5EDE0`) is warm sepia cream. No pure white anywhere.
 
 Color alone fails under fatigue. When you've been staring at code for 12 hours, your color discrimination drops. For the ~8% of males with red-green color vision deficiency, warm tones blur together.
 
-- **Bold** -- structural keywords (`if`, `return`, `const`). Your eye scans these for code flow.
-- *Italic* -- types and comments. The single cool accent (steel-blue/teal) + italic makes types unmistakable.
-- Normal -- everything else.
+- **Bold**: structural keywords (`if`, `return`, `const`). Your eye scans these for code flow.
+- *Italic*: types and comments. The single cool accent (steel-blue/teal) + italic makes types unmistakable.
+- Normal: everything else.
 
 A protanopic developer running on no sleep can distinguish structure from types from data.
 
 ### One cool accent: oxidized copper
 
-The palette is fully warm except types/classes -- `#8aa8b8` (dark) / `#2a5868` (light). This is the literal color of oxidized copper. One cool landmark in a warm field dramatically improves color distinctiveness without adding blue light load.
+The palette is fully warm except types/classes: `#8aa8b8` (dark) / `#2a5868` (light). This is the literal color of oxidized copper. One cool landmark in a warm field improves color distinctiveness without adding blue light load.
 
 ### Cursor: gold, not red
 
-The accent color is red for buttons and badges. But the cursor uses warm gold -- `#f5c56e` dark, `#8a6600` light. A red cursor gets confused with error indicators. Gold is visible everywhere.
+The accent color is red for buttons and badges. But the cursor uses warm gold: `#f5c56e` dark, `#8a6600` light. A red cursor gets confused with error indicators. Gold is visible everywhere.
 
 ## The Palette
 
@@ -112,10 +112,18 @@ Then select **Warm Burnout Dark** or **Warm Burnout Light** with `Cmd+K Cmd+T` (
 
 ## Also Available For
 
+- [Zed](https://github.com/felipefdl/warm-burnout/tree/main/zed)
+- [JetBrains](https://github.com/felipefdl/warm-burnout/tree/main/jetbrains) (IntelliJ, WebStorm, RustRover, etc.)
+- [Neovim](https://github.com/felipefdl/warm-burnout/tree/main/nvim)
+- [Xcode](https://github.com/felipefdl/warm-burnout/tree/main/xcode)
 - [Ghostty](https://github.com/felipefdl/warm-burnout/tree/main/ghostty)
+- [iTerm2](https://github.com/felipefdl/warm-burnout/tree/main/iterm2)
+- [Windows Terminal](https://github.com/felipefdl/warm-burnout/tree/main/windows-terminal)
+- [tmux](https://github.com/felipefdl/warm-burnout/tree/main/tmux)
 - [Starship](https://github.com/felipefdl/warm-burnout/tree/main/starship)
 - [Zsh](https://github.com/felipefdl/warm-burnout/tree/main/zsh) (syntax highlighting + fzf)
+- [eza](https://github.com/felipefdl/warm-burnout/tree/main/eza)
 
 ## License
 
-[MIT](https://github.com/felipefdl/warm-burnout/blob/main/LICENSE) -- use it, fork it, burn it out.
+[MIT](https://github.com/felipefdl/warm-burnout/blob/main/LICENSE). Use it, fork it, burn it out.

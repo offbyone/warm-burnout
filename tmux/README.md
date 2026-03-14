@@ -4,7 +4,7 @@ Your status bar was the last thing not burning in warm tones. Fixed that.
 
 ## Requirements
 
-tmux 3.2+ (hex color support). Older versions silently ignore hex values and you get default colors -- which defeats the point.
+tmux 3.2+ (hex color support). Older versions silently ignore hex values and you get default colors, which defeats the point.
 
 ## Install
 
@@ -32,7 +32,7 @@ set -g @warm-burnout-variant "dark"  # or "light"
 run-shell /path/to/warm-burnout/tmux/warm-burnout.tmux
 ```
 
-If you cloned the full repo, that path is wherever you put it. TPM's `set -g @plugin` syntax expects a standalone repo -- use `run-shell` directly for monorepo setups.
+If you cloned the full repo, that path is wherever you put it. TPM's `set -g @plugin` syntax expects a standalone repo. Use `run-shell` directly for monorepo setups.
 
 ## Variant Switching
 
@@ -50,7 +50,7 @@ After loading, your status bar should show warm amber session names and burnt or
 
 ## What This Themes
 
-tmux themes control UI chrome only -- status bar, pane borders, messages, copy-mode highlights, and the clock. Terminal ANSI colors come from your terminal emulator (Ghostty, Alacritty, etc.), not from tmux.
+tmux themes control UI chrome only: status bar, pane borders, messages, copy-mode highlights, and the clock. Terminal ANSI colors come from your terminal emulator (Ghostty, Alacritty, etc.), not from tmux.
 
 ## Palette
 

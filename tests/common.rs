@@ -206,6 +206,48 @@ pub fn iterm2_color(src: &str, key: &str) -> String {
   format!("#{r:02x}{g:02x}{b:02x}")
 }
 
+/// Extract a color value from the `<colors>` section of a JetBrains `.icls` file.
+/// Parses lines like `<option name="CARET_COLOR" value="f5c56e"/>` and returns `#f5c56e`.
+pub fn jetbrains_color(src: &str, key: &str) -> String {
+  let colors_start = src.find("<colors>").expect("missing <colors> section");
+  let colors_end = src.find("</colors>").expect("missing </colors> section");
+  let colors = &src[colors_start..colors_end];
+  let pattern = format!("name=\"{key}\"");
+  let line = colors
+    .lines()
+    .find(|l| l.contains(&pattern))
+    .unwrap_or_else(|| panic!("no color key '{key}' in jetbrains theme"));
+  let val_start = line.find("value=\"").expect("no value in line") + 7;
+  let val_end = line[val_start..].find('"').expect("no closing quote") + val_start;
+  format!("#{}", line[val_start..val_end].to_lowercase())
+}
+
+/// Extract a property from an attribute in the `<attributes>` section of a JetBrains `.icls` file.
+/// `prop` is one of: FOREGROUND, BACKGROUND, FONT_TYPE.
+/// For FOREGROUND/BACKGROUND returns `#hexval`; for FONT_TYPE returns the raw digit string.
+pub fn jetbrains_attribute(src: &str, attr: &str, prop: &str) -> String {
+  let attrs_start = src.find("<attributes>").expect("missing <attributes> section");
+  let attrs_section = &src[attrs_start..];
+  let attr_pattern = format!("name=\"{attr}\"");
+  let attr_pos = attrs_section
+    .find(&attr_pattern)
+    .unwrap_or_else(|| panic!("no attribute '{attr}' in jetbrains theme"));
+  let rest = &attrs_section[attr_pos..];
+  let prop_pattern = format!("name=\"{prop}\"");
+  let prop_pos = rest
+    .find(&prop_pattern)
+    .unwrap_or_else(|| panic!("no property '{prop}' in attribute '{attr}'"));
+  let prop_rest = &rest[prop_pos..];
+  let val_start = prop_rest.find("value=\"").expect("no value") + 7;
+  let val_end = prop_rest[val_start..].find('"').expect("no closing quote") + val_start;
+  let raw = &prop_rest[val_start..val_end];
+  if prop == "FONT_TYPE" {
+    raw.to_string()
+  } else {
+    format!("#{}", raw.to_lowercase())
+  }
+}
+
 /// Extract all key-value pairs from a Lua palette table block (M.dark or M.light).
 /// Returns vec of (key, hex_value) pairs.
 pub fn nvim_palette_keys(src: &str) -> Vec<String> {

@@ -1,8 +1,9 @@
 mod common;
 
 use common::{
-  ghostty_color, hex_to_lower, iterm2_color, nvim_palette_color, starship_palette_color, tmux_option_value,
-  tmux_style_fg, vscode_color, windows_terminal_color, xcode_color, xcode_syntax_color, zed_editor_color,
+  ghostty_color, hex_to_lower, iterm2_color, jetbrains_attribute, jetbrains_color, nvim_palette_color,
+  starship_palette_color, tmux_option_value, tmux_style_fg, vscode_color, windows_terminal_color, xcode_color,
+  xcode_syntax_color, zed_editor_color,
 };
 
 fn zsh_foreground(src: &str) -> Option<String> {
@@ -509,6 +510,96 @@ fn light_cursor_iterm2_matches_ghostty() {
   let iterm2 = iterm2_color(include_str!("../iterm2/Warm Burnout Light.itermcolors"), "Cursor Color");
   let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "cursor-color");
   assert_eq!(iterm2, ghostty, "light cursor: iterm2={iterm2} ghostty={ghostty}");
+}
+
+// -- JetBrains cross-platform consistency --
+
+#[test]
+fn dark_background_jetbrains_matches_vscode() {
+  let jetbrains = jetbrains_attribute(
+    include_str!("../jetbrains/Warm Burnout Dark.icls"),
+    "TEXT",
+    "BACKGROUND",
+  );
+  let vscode = vscode_color(
+    include_str!("../vscode/themes/warm-burnout-dark.json"),
+    "editor.background",
+  );
+  assert_eq!(
+    jetbrains, vscode,
+    "dark background: jetbrains={jetbrains} vscode={vscode}"
+  );
+}
+
+#[test]
+fn light_background_jetbrains_matches_vscode() {
+  let jetbrains = jetbrains_attribute(
+    include_str!("../jetbrains/Warm Burnout Light.icls"),
+    "TEXT",
+    "BACKGROUND",
+  );
+  let vscode = vscode_color(
+    include_str!("../vscode/themes/warm-burnout-light.json"),
+    "editor.background",
+  );
+  assert_eq!(
+    jetbrains, vscode,
+    "light background: jetbrains={jetbrains} vscode={vscode}"
+  );
+}
+
+#[test]
+fn dark_foreground_jetbrains_matches_vscode() {
+  let jetbrains = jetbrains_attribute(
+    include_str!("../jetbrains/Warm Burnout Dark.icls"),
+    "TEXT",
+    "FOREGROUND",
+  );
+  let vscode = vscode_color(
+    include_str!("../vscode/themes/warm-burnout-dark.json"),
+    "editor.foreground",
+  );
+  assert_eq!(
+    jetbrains, vscode,
+    "dark foreground: jetbrains={jetbrains} vscode={vscode}"
+  );
+}
+
+#[test]
+fn light_foreground_jetbrains_matches_vscode() {
+  let jetbrains = jetbrains_attribute(
+    include_str!("../jetbrains/Warm Burnout Light.icls"),
+    "TEXT",
+    "FOREGROUND",
+  );
+  let vscode = vscode_color(
+    include_str!("../vscode/themes/warm-burnout-light.json"),
+    "editor.foreground",
+  );
+  assert_eq!(
+    jetbrains, vscode,
+    "light foreground: jetbrains={jetbrains} vscode={vscode}"
+  );
+}
+
+#[test]
+fn dark_cursor_jetbrains_matches_ghostty() {
+  let jetbrains = jetbrains_color(include_str!("../jetbrains/Warm Burnout Dark.icls"), "CARET_COLOR");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-dark"), "cursor-color");
+  assert_eq!(
+    jetbrains, ghostty,
+    "dark cursor: jetbrains={jetbrains} ghostty={ghostty}"
+  );
+}
+
+#[test]
+fn light_cursor_jetbrains_matches_ghostty() {
+  let jetbrains = jetbrains_color(include_str!("../jetbrains/Warm Burnout Light.icls"), "CARET_COLOR");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "cursor-color");
+  assert_eq!(
+    jetbrains, ghostty,
+    "light cursor: jetbrains={jetbrains} ghostty={ghostty}"
+  );
 }
 
 // -- Windows Terminal cross-platform consistency --

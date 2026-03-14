@@ -50,7 +50,7 @@ The theme maps the full Warm Burnout palette to every eza element:
 
 ## Verify
 
-Run `ll` or `eza -la` -- warm tones everywhere, no blue.
+Run `ll` or `eza -la`. Warm tones everywhere, no blue.
 
 ## Palette
 

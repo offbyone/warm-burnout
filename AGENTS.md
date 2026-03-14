@@ -34,12 +34,14 @@ patina-vscode-theme/
     eza.rs                    # Eza theme validation tests
     xcode.rs                  # Xcode theme validation tests
     iterm2.rs                 # iTerm2 theme validation tests
+    jetbrains.rs              # JetBrains theme validation tests
     windows_terminal.rs       # Windows Terminal theme validation tests
     tmux.rs                   # tmux theme validation tests
     zsh.rs                    # Zsh theme validation tests
   .github/workflows/
     validate.yml              # CI: run theme validation on push/PR
     release-vscode.yml        # VS Code extension release workflow
+    release-themes.yml        # All platforms release workflow (zip/attach to GH release)
   vscode/                     # VS Code extension (primary, palette source of truth)
     README.md                 # VS Code install instructions
     AGENTS.md                 # VS Code-specific agent rules
@@ -96,6 +98,18 @@ patina-vscode-theme/
     AGENTS.md                 # iTerm2-specific agent rules
     Warm Burnout Dark.itermcolors   # Dark variant (XML plist)
     Warm Burnout Light.itermcolors  # Light variant (XML plist)
+  jetbrains/                  # JetBrains IDE theme (full UI + editor)
+    META-INF/
+      plugin.xml              # Plugin manifest
+    Warm Burnout Dark.theme.json          # Classic dark UI theme
+    Warm Burnout Light.theme.json         # Classic light UI theme
+    Warm Burnout Islands Dark.theme.json  # Islands dark UI theme (2025.3+)
+    Warm Burnout Islands Light.theme.json # Islands light UI theme (2025.3+)
+    Warm Burnout Dark.icls    # Dark editor scheme (.icls XML)
+    Warm Burnout Light.icls   # Light editor scheme (.icls XML)
+    build.sh                  # Build plugin JAR
+    README.md                 # JetBrains install instructions
+    AGENTS.md                 # JetBrains-specific agent rules
   windows-terminal/           # Windows Terminal color scheme
     README.md                 # Windows Terminal install instructions
     AGENTS.md                 # Windows Terminal-specific agent rules
@@ -224,6 +238,39 @@ Use these as inspiration for copy, commit messages, taglines, and descriptions:
 - "every pixel, audited to hurt less"
 - "the ophthalmologist approves, probably"
 
+### Writing Style: Avoid AI-Typical Language
+
+User-facing text must read like a human wrote it. AI-generated text has recognizable tics that erode trust with a developer audience. Avoid these:
+
+**Punctuation:**
+- Do not use `--` as em dashes. Use colons, periods, commas, or restructure the sentence.
+
+**Filler words and phrases:**
+- "Here's why:", "Here's the thing:", "Here's what happened:"
+- "literally" (unless something is actually literal)
+- "dramatically", "significantly", "incredibly", "remarkably"
+- "It's worth noting that", "It's important to note"
+- "What's left is", "What remains is"
+- "In other words", "That said", "That being said"
+- "This means that"
+- "straightforward", "comprehensive", "robust", "seamless"
+- "First and foremost"
+- "dive into", "delve into", "deep dive"
+- "leverage" (say "use")
+- "utilize" (say "use")
+- "In order to" (say "to")
+- "a wide range of", "a variety of"
+- "game-changer", "game-changing"
+- "Whether you're a... or a..."
+
+**Sentence patterns:**
+- Do not open paragraphs with "So," or "Now,"
+- Do not use three-part dramatic fragments back-to-back ("Not X. Not Y. Z.")
+- Avoid rhetorical questions followed by their own answer
+- Do not end sections with a single-sentence "takeaway" restatement
+
+**General rule:** If a sentence sounds like it could appear in any AI-generated blog post, rewrite it.
+
 ### Code Quality
 
 1. Always run `cargo fmt` after modifying Rust files.
@@ -236,6 +283,18 @@ Use these as inspiration for copy, commit messages, taglines, and descriptions:
 2. Add `README.md` -- platform-specific install + the brand voice.
 3. Add `AGENTS.md` -- platform-specific agent rules, referencing this file for palette.
 4. Map the canonical palette to the platform's format.
-5. Add a release workflow if applicable (`.github/workflows/release-platform-name.yml`).
-6. Update the platforms table in the root `README.md`.
-7. Do not duplicate the full palette tables -- reference this file.
+5. Add the platform to `.github/workflows/release-themes.yml`: zip multi-file platforms, attach single-file platforms directly.
+6. Add any build artifacts to `.gitignore`.
+7. Update the platforms table in the root `README.md`.
+8. Do not duplicate the full palette tables -- reference this file.
+
+### Release Files
+
+Every platform must have its theme files attached to GitHub Releases via `.github/workflows/release-themes.yml`. The workflow triggers on `v*` tags and attaches all platform packages to the release.
+
+**Packaging rules:**
+- Multi-file platforms: zip into `warm-burnout-<platform>.zip` (e.g., `warm-burnout-ghostty.zip`)
+- Single-file platforms: attach directly with a descriptive name (e.g., `warm-burnout-eza.yml`)
+- Platforms with build steps: build first, attach the artifact (e.g., `jetbrains/warm-burnout-theme.jar`)
+
+VS Code is handled separately by `release-vscode.yml` (marketplace + Open VSX publishing).

@@ -35,7 +35,7 @@ Restart Ghostty after changing the config.
 
 ## Verify
 
-Run any ANSI color test script or just `ls --color` -- warm browns instead of searing blues.
+Run any ANSI color test script or just `ls --color`. Warm browns instead of searing blues.
 
 ## Palette
 

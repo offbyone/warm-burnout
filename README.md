@@ -2,21 +2,21 @@
 
 The theme suite for developers who already burned out but still have deadlines.
 
-Built on one premise: your eyes are taking damage and your current theme doesn't care. Warm Burnout does. Fully warm palette, minimal blue light, contrast-audited to clinical standards. Two variants everywhere -- **Dark** for the 3am sessions and **Light** for when someone forces you to open the blinds.
+Built on one premise: your eyes are taking damage and your current theme doesn't care. Warm Burnout does. Fully warm palette, minimal blue light, contrast-audited to clinical standards. Two variants: **Dark** for the 3am sessions and **Light** for when someone forces you to open the blinds.
 
 ## The Problem With Your Current Theme
 
 Most themes look great in screenshots. Then you use them for 14 hours straight and your eyes feel like they've been sandpapered.
 
-Here's why: the blues, cyans, and purples that make themes look "cool" emit at 450-500nm -- the exact wavelength range that suppresses melatonin, triggers digital eye strain, and makes your ophthalmologist wince. Your theme is literally fighting your body's ability to rest, even after you close the laptop.
+The blues, cyans, and purples that make themes look "cool" emit at 450-500nm, the exact wavelength range that suppresses melatonin, triggers digital eye strain, and makes your ophthalmologist wince. Your theme is fighting your body's ability to rest, even after you close the laptop.
 
-Warm Burnout strips out almost all blue-spectrum syntax colors. What's left is a fully warm palette (550-630nm dominant) that your retinas can survive.
+Warm Burnout strips out almost all blue-spectrum syntax colors, leaving a fully warm palette (550-630nm dominant) that your retinas can survive.
 
 ## Eye Safety Audit
 
 We ran a full ophthalmological contrast audit. Not vibes. Math.
 
-### Dark -- Every Token AAA
+### Dark: Every Token AAA
 
 Every syntax color meets **WCAG AAA** (>= 7:1 contrast ratio) against the editor background. Every single one. Most themes can't even get comments past 4:1.
 
@@ -33,9 +33,9 @@ Every syntax color meets **WCAG AAA** (>= 7:1 contrast ratio) against the editor
 
 Your comments are readable at 3am. On purpose.
 
-### Light -- AA Minimum, Sepia Cream Background
+### Light: AA Minimum, Sepia Cream Background
 
-The light theme uses `#F5EDE0` -- a warm sepia cream, not white. 14.6% less bright than pure white. Estimated ~4000K color temperature vs white's ~6500K, which means roughly **40-50% less melatonin suppression** compared to white-background themes.
+The light theme uses `#F5EDE0`, a warm sepia cream, not white. 14.6% less bright than pure white. Estimated ~4000K color temperature vs white's ~6500K, which means roughly **40-50% less melatonin suppression** compared to white-background themes.
 
 | Role | Color | Ratio | Style |
 |------|-------|-------|-------|
@@ -85,9 +85,9 @@ Dark office. Energy drinks. You open the blinds for the first time since Tuesday
 
 ### Background: no pure black, no pure white
 
-The dark background (`#1a1510`) is a warm brown-black. Pure black (#000000) causes **halation** -- a glow/bleed effect around text that affects roughly 33% of the population (those with astigmatism). The warm tint eliminates this.
+The dark background (`#1a1510`) is a warm brown-black. Pure black (#000000) causes **halation**, a glow/bleed effect around text that affects roughly 33% of the population (those with astigmatism). The warm tint eliminates this.
 
-The light background (`#F5EDE0`) is warm sepia cream -- inspired by Solarized Light's cream approach but shifted toward brown-sepia. No pure white anywhere.
+The light background (`#F5EDE0`) is warm sepia cream. Inspired by Solarized Light's cream approach but shifted toward brown-sepia. No pure white anywhere.
 
 ### Three-tier font style system
 
@@ -95,19 +95,19 @@ Color alone fails under fatigue. When you've been staring at code for 12 hours, 
 
 Warm Burnout uses font styles as a second discrimination channel:
 
-- **Bold** -- structural keywords (`if`, `return`, `const`). Your eye scans these for code flow.
-- *Italic* -- types and comments. The single cool accent (steel-blue/teal) + italic makes types unmistakable.
-- Normal -- everything else.
+- **Bold**: structural keywords (`if`, `return`, `const`). Your eye scans these for code flow.
+- *Italic*: types and comments. The single cool accent (steel-blue/teal) + italic makes types unmistakable.
+- Normal: everything else.
 
 A protanopic developer running on no sleep can distinguish structure from types from data.
 
 ### One cool accent: oxidized copper
 
-The palette is fully warm except types/classes -- `#8aa8b8` (dark) / `#2a5868` (light). This is the literal color of oxidized copper. One cool landmark in a warm field dramatically improves color distinctiveness without adding blue light load.
+The palette is fully warm except types/classes: `#8aa8b8` (dark) / `#2a5868` (light). This is the literal color of oxidized copper. One cool landmark in a warm field improves color distinctiveness without adding blue light load.
 
 ### Cursor: gold, not red
 
-The accent color is copper rust (`#b8522e`) for buttons and badges. But the cursor uses warm gold -- `#f5c56e` dark, `#8a6600` light. A copper cursor gets confused with error indicators. Gold is visible everywhere, including YAML where syntax colors are muted.
+The accent color is copper rust (`#b8522e`) for buttons and badges. But the cursor uses warm gold: `#f5c56e` dark, `#8a6600` light. A copper cursor gets confused with error indicators. Gold is visible everywhere, including YAML where syntax colors are muted.
 
 ## The Palette
 
@@ -137,18 +137,15 @@ Inspired by materials that age well. Unlike your eyes.
 | Starship | Available | [`starship/`](starship/) |
 | Zed | Available | [`zed/`](zed/) |
 | eza | Available | [`eza/`](eza/) |
-| JetBrains | Planned | -- |
+| JetBrains | Available | [`jetbrains/`](jetbrains/) |
 | Neovim | Available | [`nvim/`](nvim/) |
 | Xcode | Available | [`xcode/`](xcode/) |
-| Alacritty | Planned | -- |
-| Warp | Planned | -- |
 | iTerm2 | Available | [`iterm2/`](iterm2/) |
 | Windows Terminal | Available | [`windows-terminal/`](windows-terminal/) |
-| Slack | Planned | -- |
 | tmux | Available | [`tmux/`](tmux/) |
 
 Each platform lives in its own directory with its own README, build process, and release workflow.
 
 ## License
 
-[MIT](LICENSE) -- use it, fork it, burn it out.
+[MIT](LICENSE). Use it, fork it, burn it out.

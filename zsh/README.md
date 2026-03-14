@@ -4,16 +4,16 @@ Your shell was also rendering in fluorescent hospital lighting. Fixed.
 
 ## What's Included
 
-- **zsh-syntax-highlighting themes** -- colors commands as you type them. Dark and light variants.
-- **fzf color schemes** -- colors the fuzzy finder UI. Dark and light variants.
+- **zsh-syntax-highlighting themes**: colors commands as you type them. Dark and light variants.
+- **fzf color schemes**: colors the fuzzy finder UI. Dark and light variants.
 
-No prompt theme. Your prompt layout is your business. Prompt colors inherit from the terminal's ANSI palette -- if you're using the Ghostty theme, you're already set.
+No prompt theme. Your prompt layout is your business. Prompt colors inherit from the terminal's ANSI palette. If you're using the Ghostty theme, you're already set.
 
 ## Prerequisites
 
-- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) -- the syntax highlighter itself
-- [fzf](https://github.com/junegunn/fzf) -- only needed if you want the fzf theme
-- A **truecolor terminal** (Ghostty, iTerm2, WezTerm, Alacritty, etc.). These themes use `fg=#RRGGBB` -- 256-color terminals will not work.
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting): the syntax highlighter itself
+- [fzf](https://github.com/junegunn/fzf): only needed if you want the fzf theme
+- A **truecolor terminal** (Ghostty, iTerm2, WezTerm, Alacritty, etc.). These themes use `fg=#RRGGBB`. 256-color terminals will not work.
 
 ## Install
 
@@ -51,7 +51,7 @@ The theme appends `--color` flags to `FZF_DEFAULT_OPTS`, so any fzf invocation p
 
 ## Dark/Light Switching
 
-There's no auto-switch mechanism for Zsh themes. If you switch between dark and light, source the matching files. A conditional in `.zshrc` based on your terminal's mode can automate this -- left as an exercise for the reader.
+There's no auto-switch mechanism for Zsh themes. If you switch between dark and light, source the matching files. A conditional in `.zshrc` based on your terminal's mode can automate this. Left as an exercise for the reader.
 
 ## Palette
 

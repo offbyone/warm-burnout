@@ -1,0 +1,119 @@
+name: Release Theme Packages
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Package Ghostty
+        run: |
+          cd ghostty
+          zip -j ../warm-burnout-ghostty.zip \
+            warm-burnout-dark \
+            warm-burnout-light
+
+      - name: Package Zsh
+        run: |
+          cd zsh
+          zip -j ../warm-burnout-zsh.zip \
+            warm-burnout-dark.zsh-theme \
+            warm-burnout-light.zsh-theme \
+            warm-burnout-dark-fzf.zsh \
+            warm-burnout-light-fzf.zsh
+
+      - name: Package Starship
+        run: |
+          cd starship
+          zip -j ../warm-burnout-starship.zip \
+            warm-burnout-dark.toml \
+            warm-burnout-light.toml \
+            starship.toml
+
+      - name: Package Zed
+        run: |
+          cd zed
+          zip -r ../warm-burnout-zed.zip \
+            themes/warm-burnout.json \
+            extension.toml \
+            LICENSE
+
+      - name: Package Neovim
+        run: |
+          cd nvim
+          zip -r ../warm-burnout-nvim.zip \
+            colors/ \
+            lua/
+
+      - name: Package Xcode
+        run: |
+          cd xcode
+          zip -j ../warm-burnout-xcode.zip \
+            "Warm Burnout Dark.xccolortheme" \
+            "Warm Burnout Light.xccolortheme"
+
+      - name: Package iTerm2
+        run: |
+          cd iterm2
+          zip -j ../warm-burnout-iterm2.zip \
+            "Warm Burnout Dark.itermcolors" \
+            "Warm Burnout Light.itermcolors"
+
+      - name: Package Windows Terminal
+        run: |
+          cd windows-terminal
+          zip -j ../warm-burnout-windows-terminal.zip \
+            warm-burnout-dark.json \
+            warm-burnout-light.json \
+            warm-burnout.json
+
+      - name: Package tmux
+        run: |
+          cd tmux
+          zip -j ../warm-burnout-tmux.zip \
+            warm-burnout-dark.conf \
+            warm-burnout-light.conf \
+            warm-burnout.tmux
+
+      - name: Package eza
+        run: cp eza/theme.yml warm-burnout-eza.yml
+
+      - name: Package JetBrains
+        run: |
+          cd jetbrains
+          chmod +x build.sh
+          ./build.sh
+
+      - name: Attach to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            warm-burnout-ghostty.zip
+            warm-burnout-zsh.zip
+            warm-burnout-starship.zip
+            warm-burnout-zed.zip
+            warm-burnout-nvim.zip
+            warm-burnout-xcode.zip
+            warm-burnout-iterm2.zip
+            warm-burnout-windows-terminal.zip
+            warm-burnout-tmux.zip
+            warm-burnout-eza.yml
+            jetbrains/warm-burnout-theme.jar
+
+      - name: Publish to JetBrains Marketplace
+        if: vars.PUBLISH_JETBRAINS == 'true'
+        run: |
+          curl -i \
+            --header "Authorization: Bearer $JETBRAINS_TOKEN" \
+            -F xmlId=com.warm-burnout.theme \
+            -F file=@jetbrains/warm-burnout-theme.jar \
+            https://plugins.jetbrains.com/api/updates/upload
+        env:
+          JETBRAINS_TOKEN: ${{ secrets.JETBRAINS_TOKEN }}

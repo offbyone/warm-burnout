@@ -28,8 +28,8 @@ vim.cmd.colorscheme 'warm-burnout-dark'
 
 ## Variants
 
-- `warm-burnout-dark` -- AAA contrast, warm brown-black background (`#1a1510`)
-- `warm-burnout-light` -- AA contrast, sepia cream background (`#F5EDE0`)
+- `warm-burnout-dark`: AAA contrast, warm brown-black background (`#1a1510`)
+- `warm-burnout-light`: AA contrast, sepia cream background (`#F5EDE0`)
 
 ## Lua API
 

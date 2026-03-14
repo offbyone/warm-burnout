@@ -6,7 +6,7 @@ Your prompt was the last thing still using default colors. Fixed that.
 
 ### Option A: ANSI colors (recommended)
 
-If your terminal already runs a Warm Burnout theme (Ghostty, Alacritty, etc.), the example config references ANSI color names directly. Dark/light switching is handled by the terminal -- no palette needed, no hacks.
+If your terminal already runs a Warm Burnout theme (Ghostty, Alacritty, etc.), the example config references ANSI color names directly. Dark/light switching is handled by the terminal. No palette needed, no hacks.
 
 ```sh
 cp starship.toml ~/.config/starship.toml
@@ -46,7 +46,7 @@ Available palette colors: `background`, `foreground`, `comment`, `cursor`, `acce
 
 **Option A handles this automatically.** Your terminal switches its ANSI colors when the OS appearance changes, and Starship inherits them. No config changes needed.
 
-**Option B requires manual switching** -- change the `palette` line in your config and restart your shell. Starship doesn't have native appearance detection yet ([starship/starship#6991](https://github.com/starship/starship/issues/6991)).
+**Option B requires manual switching.** Change the `palette` line in your config and restart your shell. Starship doesn't have native appearance detection yet ([starship/starship#6991](https://github.com/starship/starship/issues/6991)).
 
 ## Verify
 

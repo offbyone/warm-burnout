@@ -81,7 +81,7 @@ Restart Windows Terminal. The schemes will appear in the color scheme dropdown.
 
 1. Open Windows Terminal
 2. Press **Ctrl+Shift+,** to open `settings.json` directly
-3. Find the **`"schemes"`** array (not `"themes"` -- that's for UI chrome, not terminal colors)
+3. Find the **`"schemes"`** array (not `"themes"`, that's for UI chrome, not terminal colors)
 4. Paste the contents of `warm-burnout-dark.json` and `warm-burnout-light.json` as new objects inside the `"schemes"` array
 5. Save the file
 
@@ -102,8 +102,8 @@ After adding the schemes, set one as your profile's color scheme:
 2. Select your profile under **Profiles**
 3. Go to **Appearance** > **Color scheme**
 4. Select:
-   - **Warm Burnout Dark** -- for the 3am sessions
-   - **Warm Burnout Light** -- for when someone forces you to open the blinds
+   - **Warm Burnout Dark**: for the 3am sessions
+   - **Warm Burnout Light**: for when someone forces you to open the blinds
 
 Or set it directly in `settings.json`:
 
@@ -119,7 +119,7 @@ Or set it directly in `settings.json`:
 
 ## Verify
 
-Run `ls --color` or any ANSI color test script -- warm browns instead of searing blues.
+Run `ls --color` or any ANSI color test script. Warm browns instead of searing blues.
 
 ## Palette
 
