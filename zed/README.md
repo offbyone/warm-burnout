@@ -4,6 +4,10 @@ The theme for developers who already burned out but still have deadlines.
 
 Built on one premise: your eyes are taking damage and your current theme doesn't care. Warm Burnout does. Fully warm palette, minimal blue light, contrast-audited to clinical standards. Two variants: **Dark** for the 3am sessions and **Light** for when someone forces you to open the blinds.
 
+![Dark and Light side by side](https://raw.githubusercontent.com/felipefdl/warm-burnout/main/screenshots/split-comparison.png)
+
+![Editor - Dark variant](https://raw.githubusercontent.com/felipefdl/warm-burnout/main/screenshots/editor-dark.png)
+
 ## Why Your Current Theme Is Hurting You
 
 Most themes look great in screenshots. Then you use them for 14 hours straight and your eyes feel like they've been sandpapered.

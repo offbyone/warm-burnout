@@ -122,6 +122,14 @@ patina-vscode-theme/
     warm-burnout-dark.conf    # Dark variant
     warm-burnout-light.conf   # Light variant
     warm-burnout.tmux         # TPM plugin entry point
+  screenshots/                # Theme preview screenshots
+    AGENTS.md                 # Screenshot-specific agent rules
+    generate.mjs              # Playwright script to render HTML -> PNG
+    editor-dark.html          # Dark editor mockup (TypeScript/React)
+    editor-light.html         # Light editor mockup (Rust)
+    terminal-dark.html        # Terminal mockup (Ghostty + tmux + Starship)
+    split-comparison.html     # Dark vs Light side by side (HTML/CSS)
+    *.png                     # Generated 2400x1600 @2x retina PNGs
 ```
 
 ## Design Principles
@@ -298,3 +306,25 @@ Every platform must have its theme files attached to GitHub Releases via `.githu
 - Platforms with build steps: build first, attach the artifact (e.g., `jetbrains/warm-burnout-theme.jar`)
 
 VS Code is handled separately by `release-vscode.yml` (marketplace + Open VSX publishing).
+
+### Screenshots
+
+Theme preview images live in `screenshots/`. HTML mockups render to PNG via Playwright at 2400x1600 (@2x retina). The mockups use generic editor/terminal chrome, not any specific editor's UI.
+
+**After any palette change**, regenerate:
+
+```sh
+cd screenshots
+npm install playwright
+npx playwright install chromium
+node generate.mjs
+```
+
+All colors in the HTML files must match the canonical palette above. The terminal screenshot includes a tmux status bar matching `tmux/warm-burnout-dark.conf` and a Starship prompt.
+
+Screenshots are referenced in:
+- Root `README.md` (relative paths)
+- `vscode/README.md` (relative paths; `release-vscode.yml` copies `screenshots/` into the extension directory before packaging)
+- `zed/README.md` (absolute `raw.githubusercontent.com` URLs)
+
+When adding a new screenshot, update all three READMEs and the `PAGES` array in `generate.mjs`.

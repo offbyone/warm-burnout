@@ -23,6 +23,9 @@ jobs:
       - name: Copy LICENSE into extension directory
         run: cp ../LICENSE LICENSE
 
+      - name: Copy screenshots into extension directory
+        run: cp -r ../screenshots screenshots
+
       - name: Install vsce
         run: npm install -g @vscode/vsce
 

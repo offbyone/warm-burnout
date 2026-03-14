@@ -4,6 +4,14 @@ The theme suite for developers who already burned out but still have deadlines.
 
 Built on one premise: your eyes are taking damage and your current theme doesn't care. Warm Burnout does. Fully warm palette, minimal blue light, contrast-audited to clinical standards. Two variants: **Dark** for the 3am sessions and **Light** for when someone forces you to open the blinds.
 
+![Dark and Light side by side](screenshots/split-comparison.png)
+
+![Editor - Dark variant](screenshots/editor-dark.png)
+
+![Editor - Light variant](screenshots/editor-light.png)
+
+![Terminal - Ghostty + tmux + Starship](screenshots/terminal-dark.png)
+
 ## The Problem With Your Current Theme
 
 Most themes look great in screenshots. Then you use them for 14 hours straight and your eyes feel like they've been sandpapered.
