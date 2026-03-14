@@ -184,6 +184,11 @@ pub fn tmux_style_bg(style: &str) -> String {
     .unwrap_or_else(|| panic!("no bg in style: {style}"))
 }
 
+pub fn windows_terminal_color(src: &str, key: &str) -> String {
+  let v: serde_json::Value = serde_json::from_str(src).unwrap();
+  hex_to_lower(v[key].as_str().unwrap_or_else(|| panic!("missing key: {key}")))
+}
+
 pub fn iterm2_color(src: &str, key: &str) -> String {
   let cursor = std::io::Cursor::new(src.as_bytes());
   let value: plist::Value = plist::from_reader(cursor).expect("invalid plist");

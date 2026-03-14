@@ -2,7 +2,7 @@ mod common;
 
 use common::{
   ghostty_color, hex_to_lower, iterm2_color, nvim_palette_color, starship_palette_color, tmux_option_value,
-  tmux_style_fg, vscode_color, xcode_color, xcode_syntax_color, zed_editor_color,
+  tmux_style_fg, vscode_color, windows_terminal_color, xcode_color, xcode_syntax_color, zed_editor_color,
 };
 
 fn zsh_foreground(src: &str) -> Option<String> {
@@ -509,4 +509,60 @@ fn light_cursor_iterm2_matches_ghostty() {
   let iterm2 = iterm2_color(include_str!("../iterm2/Warm Burnout Light.itermcolors"), "Cursor Color");
   let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "cursor-color");
   assert_eq!(iterm2, ghostty, "light cursor: iterm2={iterm2} ghostty={ghostty}");
+}
+
+// -- Windows Terminal cross-platform consistency --
+
+#[test]
+fn dark_background_windows_terminal_matches_ghostty() {
+  let wt = windows_terminal_color(include_str!("../windows-terminal/warm-burnout-dark.json"), "background");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-dark"), "background");
+  assert_eq!(wt, ghostty, "dark background: wt={wt} ghostty={ghostty}");
+}
+
+#[test]
+fn light_background_windows_terminal_matches_ghostty() {
+  let wt = windows_terminal_color(
+    include_str!("../windows-terminal/warm-burnout-light.json"),
+    "background",
+  );
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "background");
+  assert_eq!(wt, ghostty, "light background: wt={wt} ghostty={ghostty}");
+}
+
+#[test]
+fn dark_foreground_windows_terminal_matches_ghostty() {
+  let wt = windows_terminal_color(include_str!("../windows-terminal/warm-burnout-dark.json"), "foreground");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-dark"), "foreground");
+  assert_eq!(wt, ghostty, "dark foreground: wt={wt} ghostty={ghostty}");
+}
+
+#[test]
+fn light_foreground_windows_terminal_matches_ghostty() {
+  let wt = windows_terminal_color(
+    include_str!("../windows-terminal/warm-burnout-light.json"),
+    "foreground",
+  );
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "foreground");
+  assert_eq!(wt, ghostty, "light foreground: wt={wt} ghostty={ghostty}");
+}
+
+#[test]
+fn dark_cursor_windows_terminal_matches_ghostty() {
+  let wt = windows_terminal_color(
+    include_str!("../windows-terminal/warm-burnout-dark.json"),
+    "cursorColor",
+  );
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-dark"), "cursor-color");
+  assert_eq!(wt, ghostty, "dark cursor: wt={wt} ghostty={ghostty}");
+}
+
+#[test]
+fn light_cursor_windows_terminal_matches_ghostty() {
+  let wt = windows_terminal_color(
+    include_str!("../windows-terminal/warm-burnout-light.json"),
+    "cursorColor",
+  );
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "cursor-color");
+  assert_eq!(wt, ghostty, "light cursor: wt={wt} ghostty={ghostty}");
 }

@@ -34,6 +34,7 @@ patina-vscode-theme/
     eza.rs                    # Eza theme validation tests
     xcode.rs                  # Xcode theme validation tests
     iterm2.rs                 # iTerm2 theme validation tests
+    windows_terminal.rs       # Windows Terminal theme validation tests
     tmux.rs                   # tmux theme validation tests
     zsh.rs                    # Zsh theme validation tests
   .github/workflows/
@@ -95,6 +96,12 @@ patina-vscode-theme/
     AGENTS.md                 # iTerm2-specific agent rules
     Warm Burnout Dark.itermcolors   # Dark variant (XML plist)
     Warm Burnout Light.itermcolors  # Light variant (XML plist)
+  windows-terminal/           # Windows Terminal color scheme
+    README.md                 # Windows Terminal install instructions
+    AGENTS.md                 # Windows Terminal-specific agent rules
+    warm-burnout-dark.json    # Dark variant (standalone scheme)
+    warm-burnout-light.json   # Light variant (standalone scheme)
+    warm-burnout.json         # Fragment file (both schemes, drop-in install)
   tmux/                       # tmux status bar theme
     README.md                 # tmux install instructions
     AGENTS.md                 # tmux-specific agent rules

@@ -143,7 +143,7 @@ Inspired by materials that age well. Unlike your eyes.
 | Alacritty | Planned | -- |
 | Warp | Planned | -- |
 | iTerm2 | Available | [`iterm2/`](iterm2/) |
-| Windows Terminal | Planned | -- |
+| Windows Terminal | Available | [`windows-terminal/`](windows-terminal/) |
 | Slack | Planned | -- |
 | tmux | Available | [`tmux/`](tmux/) |
 
