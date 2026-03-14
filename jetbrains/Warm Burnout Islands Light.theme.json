@@ -18,9 +18,10 @@
       "pressedBackground": "e0d8cc",
       "focusColor": "b8522e",
       "focusedBorderColor": "b8522e",
-      "separatorColor": "e0d8cc",
-      "borderColor": "e0d8cc",
-      "disabledBorderColor": "e0d8cc"
+      "separatorColor": "ddd6ca",
+      "borderColor": "ddd6ca",
+      "disabledBorderColor": "ddd6ca",
+      "lineSeparatorColor": "ddd6ca"
     },
     "Island": {
       "arc": "20",
@@ -167,6 +168,7 @@
       "background": "ede6da",
       "inactiveBackground": "ede6da",
       "borderColor": "00000000",
+      "separatorColor": "ede6da",
       "Icon": {
         "background": "ede6da",
         "hoverBackground": "e3dbd0",
@@ -361,6 +363,7 @@
       "inactiveBackground": "ede6da",
       "foreground": "3a3630",
       "inactiveForeground": "5a5244",
+      "borderColor": "ede6da",
       "Button": {
         "hoverBackground": "e3dbd0"
       }
@@ -381,7 +384,7 @@
       "Header": {
         "background": "ede6da",
         "inactiveBackground": "ede6da",
-        "borderColor": "e0d8cc"
+        "borderColor": "ede6da"
       },
       "HeaderTab": {
         "selectedBackground": "f5ede0",
@@ -445,6 +448,16 @@
       "SidePanel": {
         "background": "ede6da"
       }
-    }
+    },
+    "RecentProject.Color0.MainToolbarGradientStart": "b8522e18",
+    "RecentProject.Color1.MainToolbarGradientStart": "92480018",
+    "RecentProject.Color2.MainToolbarGradientStart": "85570018",
+    "RecentProject.Color3.MainToolbarGradientStart": "4d5c1a18",
+    "RecentProject.Color4.MainToolbarGradientStart": "2a586818",
+    "RecentProject.Color5.MainToolbarGradientStart": "7e406018",
+    "RecentProject.Color6.MainToolbarGradientStart": "7a5a1c18",
+    "RecentProject.Color7.MainToolbarGradientStart": "8e463218",
+    "RecentProject.Color8.MainToolbarGradientStart": "a0283818",
+    "RecentProject.Color9.MainToolbarGradientStart": "74501c18"
   }
 }

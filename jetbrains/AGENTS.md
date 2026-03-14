@@ -8,34 +8,35 @@ See the root [`AGENTS.md`](../AGENTS.md) for the canonical palette, design princ
 
 Warm Burnout for JetBrains uses two layers:
 
-1. **`.theme.json`** -- full UI theme (sidebar, tabs, toolbar, popups, buttons, etc.)
-2. **`.icls`** -- editor color scheme (syntax highlighting, gutter, caret, selection)
+1. **`.theme.json`** -- full UI theme with Islands support (sidebar, tabs, toolbar, popups, buttons, etc.)
+2. **`.xml`** -- editor color scheme (syntax highlighting, gutter, caret, selection)
 
-The `.theme.json` references the `.icls` via `editorScheme`. Both are packaged together as a plugin (`.jar`).
+The `.theme.json` references the `.xml` via `editorScheme`. Both are packaged together as a plugin (`.jar`).
 
 ## Plugin Structure
 
 ```
 jetbrains/
   META-INF/
-    plugin.xml                    # Plugin manifest
-  Warm Burnout Dark.theme.json   # Dark UI theme
-  Warm Burnout Light.theme.json  # Light UI theme
-  Warm Burnout Dark.icls         # Dark editor scheme
-  Warm Burnout Light.icls        # Light editor scheme
-  build.sh                       # Build plugin JAR
-  README.md                      # Install instructions
-  AGENTS.md                      # This file
+    plugin.xml                              # Plugin manifest
+  Warm Burnout Islands Dark.theme.json      # Dark UI theme (Islands)
+  Warm Burnout Islands Light.theme.json     # Light UI theme (Islands)
+  Warm-Burnout-Dark.xml                     # Dark editor scheme
+  Warm-Burnout-Light.xml                    # Light editor scheme
+  build.sh                                  # Build plugin JAR
+  README.md                                 # Install instructions
+  AGENTS.md                                 # This file
 ```
 
 ## `.theme.json` Format
 
-- JSON file with `name`, `dark` (boolean), `author`, `editorScheme` (path to `.icls`), and `ui` (component tree).
+- JSON file with `name`, `dark` (boolean), `author`, `parentTheme`, `editorScheme` (path to `.xml`), and `ui` (component tree).
 - UI keys follow `ComponentName.propertyName` pattern with nesting support.
-- Colors are 6-digit hex without `#` prefix.
+- Colors are 6-digit hex without `#` prefix. 8-digit hex includes alpha.
 - The `*` wildcard sets defaults inherited by all components.
+- Islands themes require `parentTheme` (`Islands Dark` / `Islands Light`), `Island` section, and `MainWindow.background`.
 
-## `.icls` Format (Editor Scheme)
+## `.xml` Format (Editor Scheme)
 
 - XML with `<scheme>` root, `<colors>` section, and `<attributes>` section.
 - Colors are 6-digit hex without `#` prefix.
@@ -66,6 +67,6 @@ jetbrains/
 - `#f5ede0` -- editor background, selected tab
 - `#f0e8dc` -- popups, menus, widgets, text fields
 - `#e3dbd0` -- hover, active selections
-- `#e0d8cc` -- borders, separators
+- `#DDD6CA` -- borders, separators
 - `#a89880` -- muted elements (line numbers, scrollbar thumb)
 - `#b8522e` -- accent (buttons, underlines, focus rings)

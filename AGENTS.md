@@ -101,12 +101,10 @@ patina-vscode-theme/
   jetbrains/                  # JetBrains IDE theme (full UI + editor)
     META-INF/
       plugin.xml              # Plugin manifest
-    Warm Burnout Dark.theme.json          # Classic dark UI theme
-    Warm Burnout Light.theme.json         # Classic light UI theme
-    Warm Burnout Islands Dark.theme.json  # Islands dark UI theme (2025.3+)
-    Warm Burnout Islands Light.theme.json # Islands light UI theme (2025.3+)
-    Warm Burnout Dark.icls    # Dark editor scheme (.icls XML)
-    Warm Burnout Light.icls   # Light editor scheme (.icls XML)
+    Warm Burnout Islands Dark.theme.json  # Dark UI theme (Islands)
+    Warm Burnout Islands Light.theme.json # Light UI theme (Islands)
+    Warm-Burnout-Dark.xml     # Dark editor scheme
+    Warm-Burnout-Light.xml    # Light editor scheme
     build.sh                  # Build plugin JAR
     README.md                 # JetBrains install instructions
     AGENTS.md                 # JetBrains-specific agent rules

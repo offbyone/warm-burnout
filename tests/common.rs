@@ -206,7 +206,7 @@ pub fn iterm2_color(src: &str, key: &str) -> String {
   format!("#{r:02x}{g:02x}{b:02x}")
 }
 
-/// Extract a color value from the `<colors>` section of a JetBrains `.icls` file.
+/// Extract a color value from the `<colors>` section of a JetBrains `.xml` file.
 /// Parses lines like `<option name="CARET_COLOR" value="f5c56e"/>` and returns `#f5c56e`.
 pub fn jetbrains_color(src: &str, key: &str) -> String {
   let colors_start = src.find("<colors>").expect("missing <colors> section");
@@ -222,7 +222,7 @@ pub fn jetbrains_color(src: &str, key: &str) -> String {
   format!("#{}", line[val_start..val_end].to_lowercase())
 }
 
-/// Extract a property from an attribute in the `<attributes>` section of a JetBrains `.icls` file.
+/// Extract a property from an attribute in the `<attributes>` section of a JetBrains `.xml` file.
 /// `prop` is one of: FOREGROUND, BACKGROUND, FONT_TYPE.
 /// For FOREGROUND/BACKGROUND returns `#hexval`; for FONT_TYPE returns the raw digit string.
 pub fn jetbrains_attribute(src: &str, attr: &str, prop: &str) -> String {

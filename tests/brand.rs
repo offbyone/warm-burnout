@@ -42,18 +42,10 @@ fn no_theme_file_uses_patina_as_label() {
     ("jetbrains/light", include_str!("../jetbrains/Warm-Burnout-Light.xml")),
     (
       "jetbrains/dark-theme",
-      include_str!("../jetbrains/Warm Burnout Dark.theme.json"),
-    ),
-    (
-      "jetbrains/light-theme",
-      include_str!("../jetbrains/Warm Burnout Light.theme.json"),
-    ),
-    (
-      "jetbrains/islands-dark",
       include_str!("../jetbrains/Warm Burnout Islands Dark.theme.json"),
     ),
     (
-      "jetbrains/islands-light",
+      "jetbrains/light-theme",
       include_str!("../jetbrains/Warm Burnout Islands Light.theme.json"),
     ),
   ];

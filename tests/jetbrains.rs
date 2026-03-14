@@ -5,37 +5,32 @@ use serde_json::Value as JsonValue;
 
 const DARK: &str = include_str!("../jetbrains/Warm-Burnout-Dark.xml");
 const LIGHT: &str = include_str!("../jetbrains/Warm-Burnout-Light.xml");
-const DARK_THEME: &str = include_str!("../jetbrains/Warm Burnout Dark.theme.json");
-const LIGHT_THEME: &str = include_str!("../jetbrains/Warm Burnout Light.theme.json");
-const DARK_ISLANDS: &str = include_str!("../jetbrains/Warm Burnout Islands Dark.theme.json");
-const LIGHT_ISLANDS: &str = include_str!("../jetbrains/Warm Burnout Islands Light.theme.json");
+const DARK_THEME: &str = include_str!("../jetbrains/Warm Burnout Islands Dark.theme.json");
+const LIGHT_THEME: &str = include_str!("../jetbrains/Warm Burnout Islands Light.theme.json");
 const PLUGIN_XML: &str = include_str!("../jetbrains/META-INF/plugin.xml");
 
 // -- Valid XML structure --
 
 #[test]
 fn dark_has_xml_declaration() {
-  assert!(DARK.starts_with("<?xml"), "dark .icls must start with XML declaration");
+  assert!(DARK.starts_with("<?xml"), "dark .xml must start with XML declaration");
 }
 
 #[test]
 fn light_has_xml_declaration() {
-  assert!(
-    LIGHT.starts_with("<?xml"),
-    "light .icls must start with XML declaration"
-  );
+  assert!(LIGHT.starts_with("<?xml"), "light .xml must start with XML declaration");
 }
 
 #[test]
 fn dark_has_scheme_element() {
-  assert!(DARK.contains("<scheme"), "dark .icls must have <scheme> element");
-  assert!(DARK.contains("</scheme>"), "dark .icls must have closing </scheme>");
+  assert!(DARK.contains("<scheme"), "dark .xml must have <scheme> element");
+  assert!(DARK.contains("</scheme>"), "dark .xml must have closing </scheme>");
 }
 
 #[test]
 fn light_has_scheme_element() {
-  assert!(LIGHT.contains("<scheme"), "light .icls must have <scheme> element");
-  assert!(LIGHT.contains("</scheme>"), "light .icls must have closing </scheme>");
+  assert!(LIGHT.contains("<scheme"), "light .xml must have <scheme> element");
+  assert!(LIGHT.contains("</scheme>"), "light .xml must have closing </scheme>");
 }
 
 // -- Scheme names and parent schemes --
@@ -354,13 +349,13 @@ fn light_theme_json_is_valid() {
 #[test]
 fn dark_theme_json_name() {
   let v = parse_theme(DARK_THEME);
-  assert_eq!(v["name"].as_str(), Some("Warm Burnout Dark"));
+  assert_eq!(v["name"].as_str(), Some("Warm Burnout Islands Dark"));
 }
 
 #[test]
 fn light_theme_json_name() {
   let v = parse_theme(LIGHT_THEME);
-  assert_eq!(v["name"].as_str(), Some("Warm Burnout Light"));
+  assert_eq!(v["name"].as_str(), Some("Warm Burnout Islands Light"));
 }
 
 #[test]
@@ -529,7 +524,7 @@ fn plugin_xml_has_name() {
 #[test]
 fn plugin_xml_registers_dark_theme() {
   assert!(
-    PLUGIN_XML.contains("Warm Burnout Dark.theme.json"),
+    PLUGIN_XML.contains("Warm Burnout Islands Dark.theme.json"),
     "plugin.xml must register dark theme"
   );
 }
@@ -537,7 +532,7 @@ fn plugin_xml_registers_dark_theme() {
 #[test]
 fn plugin_xml_registers_light_theme() {
   assert!(
-    PLUGIN_XML.contains("Warm Burnout Light.theme.json"),
+    PLUGIN_XML.contains("Warm Burnout Islands Light.theme.json"),
     "plugin.xml must register light theme"
   );
 }
@@ -571,153 +566,59 @@ fn light_has_breadcrumbs_override() {
 // -- Islands theme validation --
 
 #[test]
-fn dark_islands_is_valid_json() {
-  parse_theme(DARK_ISLANDS);
-}
-
-#[test]
-fn light_islands_is_valid_json() {
-  parse_theme(LIGHT_ISLANDS);
-}
-
-#[test]
-fn dark_islands_name() {
-  let v = parse_theme(DARK_ISLANDS);
-  assert_eq!(v["name"].as_str(), Some("Warm Burnout Islands Dark"));
-}
-
-#[test]
-fn light_islands_name() {
-  let v = parse_theme(LIGHT_ISLANDS);
-  assert_eq!(v["name"].as_str(), Some("Warm Burnout Islands Light"));
-}
-
-#[test]
-fn dark_islands_parent_theme() {
-  let v = parse_theme(DARK_ISLANDS);
-  assert_eq!(v["parentTheme"].as_str(), Some("Islands Dark"));
-}
-
-#[test]
-fn light_islands_parent_theme() {
-  let v = parse_theme(LIGHT_ISLANDS);
-  assert_eq!(v["parentTheme"].as_str(), Some("Islands Light"));
-}
-
-#[test]
-fn dark_islands_has_island_keys() {
-  let v = parse_theme(DARK_ISLANDS);
+fn dark_theme_has_island_keys() {
+  let v = parse_theme(DARK_THEME);
   let island = &v["ui"]["Island"];
-  assert!(island.is_object(), "dark Islands must have Island section");
+  assert!(island.is_object(), "dark theme must have Island section");
   assert!(island["arc"].is_string(), "missing Island.arc");
   assert!(island["borderWidth"].is_string(), "missing Island.borderWidth");
   assert!(island["borderColor"].is_string(), "missing Island.borderColor");
 }
 
 #[test]
-fn light_islands_has_island_keys() {
-  let v = parse_theme(LIGHT_ISLANDS);
+fn light_theme_has_island_keys() {
+  let v = parse_theme(LIGHT_THEME);
   let island = &v["ui"]["Island"];
-  assert!(island.is_object(), "light Islands must have Island section");
+  assert!(island.is_object(), "light theme must have Island section");
   assert!(island["arc"].is_string(), "missing Island.arc");
   assert!(island["borderWidth"].is_string(), "missing Island.borderWidth");
   assert!(island["borderColor"].is_string(), "missing Island.borderColor");
 }
 
 #[test]
-fn dark_islands_has_main_window_background() {
-  let v = parse_theme(DARK_ISLANDS);
+fn dark_theme_has_main_window_background() {
+  let v = parse_theme(DARK_THEME);
   assert!(
     v["ui"]["MainWindow"]["background"].is_string(),
-    "dark Islands must have MainWindow.background (canvas color)"
+    "dark theme must have MainWindow.background (canvas color)"
   );
 }
 
 #[test]
-fn light_islands_has_main_window_background() {
-  let v = parse_theme(LIGHT_ISLANDS);
+fn light_theme_has_main_window_background() {
+  let v = parse_theme(LIGHT_THEME);
   assert!(
     v["ui"]["MainWindow"]["background"].is_string(),
-    "light Islands must have MainWindow.background (canvas color)"
+    "light theme must have MainWindow.background (canvas color)"
   );
 }
 
 #[test]
-fn dark_islands_transparent_stripe_border() {
-  let v = parse_theme(DARK_ISLANDS);
+fn dark_theme_transparent_stripe_border() {
+  let v = parse_theme(DARK_THEME);
   let border = v["ui"]["ToolWindow"]["Stripe"]["borderColor"].as_str().unwrap();
   assert!(
     border.ends_with("00") || border == "00000000",
-    "dark Islands ToolWindow.Stripe.borderColor must be transparent"
+    "dark ToolWindow.Stripe.borderColor must be transparent"
   );
 }
 
 #[test]
-fn light_islands_transparent_stripe_border() {
-  let v = parse_theme(LIGHT_ISLANDS);
+fn light_theme_transparent_stripe_border() {
+  let v = parse_theme(LIGHT_THEME);
   let border = v["ui"]["ToolWindow"]["Stripe"]["borderColor"].as_str().unwrap();
   assert!(
     border.ends_with("00") || border == "00000000",
-    "light Islands ToolWindow.Stripe.borderColor must be transparent"
-  );
-}
-
-#[test]
-fn dark_islands_editor_background_matches_classic() {
-  let classic = parse_theme(DARK_THEME);
-  let islands = parse_theme(DARK_ISLANDS);
-  assert_eq!(
-    classic["ui"]["Editor"]["background"].as_str(),
-    islands["ui"]["Editor"]["background"].as_str(),
-    "dark Islands editor background must match classic"
-  );
-}
-
-#[test]
-fn light_islands_editor_background_matches_classic() {
-  let classic = parse_theme(LIGHT_THEME);
-  let islands = parse_theme(LIGHT_ISLANDS);
-  assert_eq!(
-    classic["ui"]["Editor"]["background"].as_str(),
-    islands["ui"]["Editor"]["background"].as_str(),
-    "light Islands editor background must match classic"
-  );
-}
-
-#[test]
-fn dark_islands_references_same_editor_scheme() {
-  let classic = parse_theme(DARK_THEME);
-  let islands = parse_theme(DARK_ISLANDS);
-  assert_eq!(
-    classic["editorScheme"].as_str(),
-    islands["editorScheme"].as_str(),
-    "dark Islands must reference same editor scheme as classic"
-  );
-}
-
-#[test]
-fn light_islands_references_same_editor_scheme() {
-  let classic = parse_theme(LIGHT_THEME);
-  let islands = parse_theme(LIGHT_ISLANDS);
-  assert_eq!(
-    classic["editorScheme"].as_str(),
-    islands["editorScheme"].as_str(),
-    "light Islands must reference same editor scheme as classic"
-  );
-}
-
-#[test]
-fn plugin_xml_registers_islands_dark() {
-  assert!(
-    PLUGIN_XML.contains("Warm Burnout Islands Dark.theme.json"),
-    "plugin.xml must register Islands dark theme"
-  );
-}
-
-#[test]
-fn plugin_xml_registers_islands_light() {
-  assert!(
-    PLUGIN_XML.contains("Warm Burnout Islands Light.theme.json"),
-    "plugin.xml must register Islands light theme"
+    "light ToolWindow.Stripe.borderColor must be transparent"
   );
 }
