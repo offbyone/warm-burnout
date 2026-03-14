@@ -4,6 +4,8 @@ Your IDE was also incinerating your retinas. The burnout is spreading to every J
 
 Full UI theme, not just syntax colors. Sidebar, tabs, toolbar, popups, everything. Works in IntelliJ IDEA, Android Studio, WebStorm, PyCharm, GoLand, RustRover, and every other JetBrains IDE.
 
+![Dark and Light side by side](https://raw.githubusercontent.com/felipefdl/warm-burnout/main/screenshots/split-comparison.png)
+
 ## Install
 
 ### Option A: Build and Install Plugin

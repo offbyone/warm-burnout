@@ -6,12 +6,6 @@ Built on one premise: your eyes are taking damage and your current theme doesn't
 
 ![Dark and Light side by side](screenshots/split-comparison.png)
 
-![Editor - Dark variant](screenshots/editor-dark.png)
-
-![Editor - Light variant](screenshots/editor-light.png)
-
-![Terminal - Ghostty + tmux + Starship](screenshots/terminal-dark.png)
-
 ## Why Your Current Theme Is Hurting You
 
 Most themes look great in screenshots. Then you use them for 14 hours straight and your eyes feel like they've been sandpapered.
@@ -41,6 +35,8 @@ Every syntax color meets **WCAG AAA** (>= 7:1 contrast ratio) against the editor
 
 Your comments are readable at 3am. On purpose.
 
+![Editor - Dark variant](screenshots/editor-dark.png)
+
 ### Light: AA Minimum, Sepia Cream Background
 
 The light theme uses `#F5EDE0`, a warm sepia cream, not white. 14.6% less bright than pure white. Estimated ~4000K color temperature vs white's ~6500K, roughly **40-50% less melatonin suppression** compared to white-background themes.
@@ -57,6 +53,8 @@ The light theme uses `#F5EDE0`, a warm sepia cream, not white. 14.6% less bright
 | Errors | `#b03434` | 5.3:1 | normal |
 
 All 15 syntax tokens pass AA. No exceptions.
+
+![Editor - Light variant](screenshots/editor-light.png)
 
 ## How It Works
 
@@ -117,6 +115,8 @@ ext install felip3fdl.warm-burnout
 ```
 
 Then select **Warm Burnout Dark** or **Warm Burnout Light** with `Cmd+K Cmd+T` (or `Ctrl+K Ctrl+T`).
+
+![Terminal - Ghostty + tmux + Starship](screenshots/terminal-dark.png)
 
 ## Also Available For
 

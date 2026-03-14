@@ -6,8 +6,6 @@ Built on one premise: your eyes are taking damage and your current theme doesn't
 
 ![Dark and Light side by side](https://raw.githubusercontent.com/felipefdl/warm-burnout/main/screenshots/split-comparison.png)
 
-![Editor - Dark variant](https://raw.githubusercontent.com/felipefdl/warm-burnout/main/screenshots/editor-dark.png)
-
 ## Why Your Current Theme Is Hurting You
 
 Most themes look great in screenshots. Then you use them for 14 hours straight and your eyes feel like they've been sandpapered.
@@ -36,6 +34,8 @@ Every syntax color meets **WCAG AAA** (>= 7:1 contrast ratio) against the editor
 | Errors | `#f08888` | 7.4:1 | normal |
 
 Your comments are readable at 3am. On purpose.
+
+![Editor - Dark variant](https://raw.githubusercontent.com/felipefdl/warm-burnout/main/screenshots/editor-dark.png)
 
 ### Light: AA Minimum, Sepia Cream Background
 
