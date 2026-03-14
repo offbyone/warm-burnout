@@ -38,8 +38,8 @@ fn no_theme_file_uses_patina_as_label() {
     ("tmux/light", include_str!("../tmux/warm-burnout-light.conf")),
     ("iterm2/dark", include_str!("../iterm2/Warm Burnout Dark.itermcolors")),
     ("iterm2/light", include_str!("../iterm2/Warm Burnout Light.itermcolors")),
-    ("jetbrains/dark", include_str!("../jetbrains/Warm Burnout Dark.icls")),
-    ("jetbrains/light", include_str!("../jetbrains/Warm Burnout Light.icls")),
+    ("jetbrains/dark", include_str!("../jetbrains/Warm-Burnout-Dark.xml")),
+    ("jetbrains/light", include_str!("../jetbrains/Warm-Burnout-Light.xml")),
     (
       "jetbrains/dark-theme",
       include_str!("../jetbrains/Warm Burnout Dark.theme.json"),

@@ -8,26 +8,12 @@ Full UI theme, not just syntax colors. Sidebar, tabs, toolbar, popups, everythin
 
 ## Install
 
-### Option A: Build and Install Plugin
-
 ```sh
 cd jetbrains
 ./build.sh
 ```
 
 Then in your IDE: **Settings** > **Plugins** > gear icon > **Install Plugin from Disk...** > select `warm-burnout-theme.jar`.
-
-### Option B: Editor Scheme Only
-
-If you only want the editor color scheme without full UI theming, copy the `.icls` files directly:
-
-```sh
-# Replace <Product> and <Version> with your IDE (e.g., IntelliJIdea2025.1)
-cp "Warm Burnout Dark.icls" "Warm Burnout Light.icls" \
-  ~/.config/JetBrains/<Product><Version>/colors/
-```
-
-Then select the scheme in **Settings** > **Editor** > **Color Scheme**.
 
 ## Configure
 

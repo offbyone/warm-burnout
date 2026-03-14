@@ -2,7 +2,7 @@
   "name": "Warm Burnout Islands Light",
   "dark": false,
   "author": "Felipe Lima",
-  "editorScheme": "/Warm Burnout Light.icls",
+  "editorScheme": "/Warm-Burnout-Light.xml",
   "parentTheme": "Islands Light",
   "ui": {
     "*": {

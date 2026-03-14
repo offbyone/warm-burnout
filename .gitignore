@@ -7,3 +7,4 @@ target/
 .DS_Store
 .claude/
 jetbrains/warm-burnout-theme.jar
+.idea/

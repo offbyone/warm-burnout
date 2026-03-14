@@ -3,8 +3,8 @@ mod common;
 use common::{jetbrains_attribute, jetbrains_color};
 use serde_json::Value as JsonValue;
 
-const DARK: &str = include_str!("../jetbrains/Warm Burnout Dark.icls");
-const LIGHT: &str = include_str!("../jetbrains/Warm Burnout Light.icls");
+const DARK: &str = include_str!("../jetbrains/Warm-Burnout-Dark.xml");
+const LIGHT: &str = include_str!("../jetbrains/Warm-Burnout-Light.xml");
 const DARK_THEME: &str = include_str!("../jetbrains/Warm Burnout Dark.theme.json");
 const LIGHT_THEME: &str = include_str!("../jetbrains/Warm Burnout Light.theme.json");
 const DARK_ISLANDS: &str = include_str!("../jetbrains/Warm Burnout Islands Dark.theme.json");
@@ -376,22 +376,22 @@ fn light_theme_json_is_light() {
 }
 
 #[test]
-fn dark_theme_json_references_icls() {
+fn dark_theme_json_references_editor_scheme() {
   let v = parse_theme(DARK_THEME);
   let scheme = v["editorScheme"].as_str().unwrap();
   assert!(
-    scheme.contains("Warm Burnout Dark.icls"),
-    "dark .theme.json must reference the dark .icls file"
+    scheme.contains("Warm-Burnout-Dark.xml"),
+    "dark .theme.json must reference the dark editor scheme .xml file"
   );
 }
 
 #[test]
-fn light_theme_json_references_icls() {
+fn light_theme_json_references_editor_scheme() {
   let v = parse_theme(LIGHT_THEME);
   let scheme = v["editorScheme"].as_str().unwrap();
   assert!(
-    scheme.contains("Warm Burnout Light.icls"),
-    "light .theme.json must reference the light .icls file"
+    scheme.contains("Warm-Burnout-Light.xml"),
+    "light .theme.json must reference the light editor scheme .xml file"
   );
 }
 
@@ -685,24 +685,24 @@ fn light_islands_editor_background_matches_classic() {
 }
 
 #[test]
-fn dark_islands_references_same_icls() {
+fn dark_islands_references_same_editor_scheme() {
   let classic = parse_theme(DARK_THEME);
   let islands = parse_theme(DARK_ISLANDS);
   assert_eq!(
     classic["editorScheme"].as_str(),
     islands["editorScheme"].as_str(),
-    "dark Islands must reference same .icls as classic"
+    "dark Islands must reference same editor scheme as classic"
   );
 }
 
 #[test]
-fn light_islands_references_same_icls() {
+fn light_islands_references_same_editor_scheme() {
   let classic = parse_theme(LIGHT_THEME);
   let islands = parse_theme(LIGHT_ISLANDS);
   assert_eq!(
     classic["editorScheme"].as_str(),
     islands["editorScheme"].as_str(),
-    "light Islands must reference same .icls as classic"
+    "light Islands must reference same editor scheme as classic"
   );
 }
 

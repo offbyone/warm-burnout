@@ -2,7 +2,7 @@
   "name": "Warm Burnout Islands Dark",
   "dark": true,
   "author": "Felipe Lima",
-  "editorScheme": "/Warm Burnout Dark.icls",
+  "editorScheme": "/Warm-Burnout-Dark.xml",
   "parentTheme": "Islands Dark",
   "ui": {
     "*": {

@@ -2,7 +2,7 @@
   "name": "Warm Burnout Light",
   "dark": false,
   "author": "Felipe Lima",
-  "editorScheme": "/Warm Burnout Light.icls",
+  "editorScheme": "/Warm-Burnout-Light.xml",
   "ui": {
     "*": {
       "arc": "4",

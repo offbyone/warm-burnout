@@ -8,6 +8,6 @@ zip -r warm-burnout-theme.jar \
   "Warm Burnout Light.theme.json" \
   "Warm Burnout Islands Dark.theme.json" \
   "Warm Burnout Islands Light.theme.json" \
-  "Warm Burnout Dark.icls" \
-  "Warm Burnout Light.icls"
+  Warm-Burnout-Dark.xml \
+  Warm-Burnout-Light.xml
 echo "Built: jetbrains/warm-burnout-theme.jar"

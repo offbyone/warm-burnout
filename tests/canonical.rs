@@ -516,11 +516,7 @@ fn light_cursor_iterm2_matches_ghostty() {
 
 #[test]
 fn dark_background_jetbrains_matches_vscode() {
-  let jetbrains = jetbrains_attribute(
-    include_str!("../jetbrains/Warm Burnout Dark.icls"),
-    "TEXT",
-    "BACKGROUND",
-  );
+  let jetbrains = jetbrains_attribute(include_str!("../jetbrains/Warm-Burnout-Dark.xml"), "TEXT", "BACKGROUND");
   let vscode = vscode_color(
     include_str!("../vscode/themes/warm-burnout-dark.json"),
     "editor.background",
@@ -534,7 +530,7 @@ fn dark_background_jetbrains_matches_vscode() {
 #[test]
 fn light_background_jetbrains_matches_vscode() {
   let jetbrains = jetbrains_attribute(
-    include_str!("../jetbrains/Warm Burnout Light.icls"),
+    include_str!("../jetbrains/Warm-Burnout-Light.xml"),
     "TEXT",
     "BACKGROUND",
   );
@@ -550,11 +546,7 @@ fn light_background_jetbrains_matches_vscode() {
 
 #[test]
 fn dark_foreground_jetbrains_matches_vscode() {
-  let jetbrains = jetbrains_attribute(
-    include_str!("../jetbrains/Warm Burnout Dark.icls"),
-    "TEXT",
-    "FOREGROUND",
-  );
+  let jetbrains = jetbrains_attribute(include_str!("../jetbrains/Warm-Burnout-Dark.xml"), "TEXT", "FOREGROUND");
   let vscode = vscode_color(
     include_str!("../vscode/themes/warm-burnout-dark.json"),
     "editor.foreground",
@@ -568,7 +560,7 @@ fn dark_foreground_jetbrains_matches_vscode() {
 #[test]
 fn light_foreground_jetbrains_matches_vscode() {
   let jetbrains = jetbrains_attribute(
-    include_str!("../jetbrains/Warm Burnout Light.icls"),
+    include_str!("../jetbrains/Warm-Burnout-Light.xml"),
     "TEXT",
     "FOREGROUND",
   );
@@ -584,7 +576,7 @@ fn light_foreground_jetbrains_matches_vscode() {
 
 #[test]
 fn dark_cursor_jetbrains_matches_ghostty() {
-  let jetbrains = jetbrains_color(include_str!("../jetbrains/Warm Burnout Dark.icls"), "CARET_COLOR");
+  let jetbrains = jetbrains_color(include_str!("../jetbrains/Warm-Burnout-Dark.xml"), "CARET_COLOR");
   let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-dark"), "cursor-color");
   assert_eq!(
     jetbrains, ghostty,
@@ -594,7 +586,7 @@ fn dark_cursor_jetbrains_matches_ghostty() {
 
 #[test]
 fn light_cursor_jetbrains_matches_ghostty() {
-  let jetbrains = jetbrains_color(include_str!("../jetbrains/Warm Burnout Light.icls"), "CARET_COLOR");
+  let jetbrains = jetbrains_color(include_str!("../jetbrains/Warm-Burnout-Light.xml"), "CARET_COLOR");
   let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "cursor-color");
   assert_eq!(
     jetbrains, ghostty,
