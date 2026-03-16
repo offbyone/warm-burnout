@@ -10,7 +10,12 @@ Fully warm palette for the entire HA UI: cards, sidebar, graphs, energy dashboar
 
 1. Open HACS in your Home Assistant instance
 2. Go to Frontend > three-dot menu > Custom repositories
-3. Add this repo URL, category: **Theme**
+3. Add the repo URL, category: **Theme**:
+
+```
+https://github.com/felipefdl/warm-burnout
+```
+
 4. Search "Warm Burnout" in HACS and download it
 5. Restart Home Assistant (or reload themes via Developer Tools > YAML > Themes)
 
