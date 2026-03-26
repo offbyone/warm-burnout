@@ -140,7 +140,8 @@ Inspired by materials that age well. Unlike your eyes.
 | Platform | Status | Install |
 |----------|--------|---------|
 | VS Code | Available | [Marketplace](https://marketplace.visualstudio.com/items?itemName=felip3fdl.warm-burnout) |
-| JetBrains | Available | [Marketplace](https://plugins.jetbrains.com/plugin/30694-warm-burnout) |
+| Open VSX | Available | [Registry](https://open-vsx.org/extension/felip3fdl/warm-burnout) (Antigravity, Cursor, Windsurf, Kiro, VSCodium) |
+| JetBrains | Available | [Marketplace](https://plugins.jetbrains.com/plugin/30694-warm-burnout) (IntelliJ, Android Studio, PyCharm, WebStorm, RustRover) |
 | Ghostty | Available | [`ghostty/`](ghostty/) |
 | Zed | Available | [`zed/`](zed/) |
 | Neovim | Available | [`nvim/`](nvim/) |
