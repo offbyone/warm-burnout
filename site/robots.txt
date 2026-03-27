@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://felipefdl.github.io/warm-burnout/sitemap.xml
+Sitemap: https://warmburnout.com/sitemap.xml
