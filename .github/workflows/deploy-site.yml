@@ -49,6 +49,7 @@ jobs:
           cp site/og-image.png _site/og-image.png
           cp site/robots.txt _site/robots.txt
           cp site/sitemap.xml _site/sitemap.xml
+          cp -r site/logos _site/logos
           cp site/CNAME _site/CNAME
 
       - uses: actions/configure-pages@v5

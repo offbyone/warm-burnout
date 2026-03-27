@@ -664,9 +664,16 @@ a:hover {
 }
 
 .also-by-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
   opacity: 0.6;
   transition: opacity 0.2s;
   border-radius: 3px;
+}
+
+[data-theme="light"] .also-by-icon-invert {
+  filter: brightness(0) saturate(100%);
 }
 
 .also-by-name {
