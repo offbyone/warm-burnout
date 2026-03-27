@@ -229,7 +229,8 @@ Light: foreground needs L <= 0.144 for AA.
 1. Bump version in `vscode/package.json` and `zed/extension.toml`.
 2. Commit, create `v{version}` tag, push both.
 3. The tag push triggers `release-vscode.yml` (VS Code/Open VSX) and `release-themes.yml` (all platform zips attached to GitHub Release).
-4. **Zed marketplace** requires a separate PR to `zed-industries/extensions`. Clone the fork at `felipefdl/extensions`, sync with upstream, update the submodule to the new tag, bump the version in the central `extensions.toml` (only the `[warm-burnout-theme]` entry), and open a PR against `zed-industries/extensions`.
+4. **Update release notes** on the GitHub Release. Write real notes, not a changelog dump. Structure them by what matters to users: palette changes, font style changes, UI fixes, new platform coverage, infrastructure, fixes. End with the comfort score and test count. Match the tone of v1.4.2 release notes. Use `gh release edit` to update after the workflow creates the release.
+5. **Zed marketplace** requires a separate PR to `zed-industries/extensions`. Clone the fork at `felipefdl/extensions`, sync with upstream, update the submodule to the new tag, bump the version in the central `extensions.toml` (only the `[warm-burnout-theme]` entry), and open a PR against `zed-industries/extensions`.
 
 ### Website
 
