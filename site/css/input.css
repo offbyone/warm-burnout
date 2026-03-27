@@ -640,12 +640,15 @@ a:hover {
 }
 
 .also-by-grid {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 18px max-content max-content auto;
-  justify-content: center;
   align-items: center;
   text-align: left;
-  gap: 6px 8px;
+  gap: 8px 6px;
+}
+
+.also-by-grid-wrap {
+  text-align: center;
 }
 
 .also-by-app {
