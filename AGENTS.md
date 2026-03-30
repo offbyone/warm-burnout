@@ -139,6 +139,9 @@ warm-burnout/
     manifest.json              # Community theme manifest
     README.md                  # Obsidian install instructions
     AGENTS.md                  # Obsidian-specific agent rules
+    screenshot.png             # Community directory screenshot
+    fonts/                     # Bundled fonts (Inter, Geist Mono)
+    screenshots/               # README screenshots (dark + light)
   screenshots/                # Theme preview screenshots
     AGENTS.md                 # Screenshot-specific agent rules
     generate.mjs              # Playwright script to render HTML -> PNG

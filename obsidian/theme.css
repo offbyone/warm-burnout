@@ -4,6 +4,29 @@
    https://warmburnout.com
    ========================================================================== */
 
+/* -- Fonts ---------------------------------------------------------------- */
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/InterVariable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("fonts/GeistMono[wght].woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+body {
+  --font-text-theme: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-interface-theme: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-monospace-theme: "Geist Mono", "SF Mono", Menlo, Consolas, monospace;
+}
+
 /* -- Dark variant --------------------------------------------------------- */
 .theme-dark {
   /* Palette (canonical hex values, test harness reads from these) */
@@ -337,8 +360,8 @@
   --h6-color: var(--wb-warm-stone);
 
   /* Selection and highlights */
-  --text-selection: rgba(138, 102, 0, 0.15);
-  --text-highlight-bg: rgba(138, 102, 0, 0.12);
+  --text-selection: rgba(138, 102, 0, 0.22);
+  --text-highlight-bg: rgba(138, 102, 0, 0.18);
 
   /* Text hierarchy */
   --text-normal: var(--wb-fg);
@@ -399,9 +422,9 @@
   --nav-item-color-hover: var(--wb-fg);
   --nav-item-color-active: var(--wb-fg);
   --nav-item-color-selected: var(--wb-fg);
-  --nav-item-background-hover: rgba(184, 82, 46, 0.06);
-  --nav-item-background-active: rgba(184, 82, 46, 0.1);
-  --nav-item-background-selected: rgba(184, 82, 46, 0.12);
+  --nav-item-background-hover: rgba(184, 82, 46, 0.10);
+  --nav-item-background-active: rgba(184, 82, 46, 0.16);
+  --nav-item-background-selected: rgba(184, 82, 46, 0.20);
 
   /* Tabs */
   --tab-background-active: var(--color-base-00);
@@ -426,7 +449,7 @@
   --status-bar-border-color: transparent;
 
   /* Dividers and borders */
-  --divider-color: rgba(58, 54, 48, 0.08);
+  --divider-color: rgba(58, 54, 48, 0.12);
   --prompt-border-color: var(--color-base-25);
   --background-modifier-border: var(--color-base-20);
   --background-modifier-border-hover: var(--color-base-30);
@@ -437,7 +460,7 @@
   --interactive-hover: var(--color-base-20);
   --interactive-accent: var(--wb-accent);
   --interactive-accent-hover: #a04828;
-  --background-modifier-hover: rgba(184, 82, 46, 0.06);
+  --background-modifier-hover: rgba(184, 82, 46, 0.10);
 
   /* Icons */
   --icon-color: var(--color-base-50);
@@ -456,8 +479,8 @@
   /* Tag pills */
   --tag-color: var(--wb-accent);
   --tag-color-hover: #a04828;
-  --tag-background: rgba(184, 82, 46, 0.08);
-  --tag-background-hover: rgba(184, 82, 46, 0.14);
+  --tag-background: rgba(184, 82, 46, 0.14);
+  --tag-background-hover: rgba(184, 82, 46, 0.22);
 
   /* Feedback text */
   --text-success: var(--wb-dried-sage);
@@ -503,11 +526,11 @@
   --inline-title-weight: 700;
 
   /* Heading formatting (dim the # markers) */
-  --heading-formatting: var(--color-base-35);
+  --heading-formatting: var(--color-base-40);
 
   /* Indentation guides */
-  --indentation-guide-color: var(--color-base-20);
-  --indentation-guide-color-active: var(--color-base-35);
+  --indentation-guide-color: var(--color-base-25);
+  --indentation-guide-color-active: var(--color-base-40);
 
   /* Modal / dialog */
   --modal-background: var(--color-base-00);
@@ -544,6 +567,19 @@
   /* Monochrome scale (for Obsidian internals) */
   --mono-rgb-0: 245, 237, 224;
   --mono-rgb-100: 58, 54, 48;
+
+  /* Code block background: one step darker than page, subtle distinction */
+  --code-background: var(--color-base-05);
+
+  /* Tooltip: needs more separation from page bg in light mode */
+  --tooltip-bg: var(--color-base-20);
+
+  /* Scrollbar: thumb needs more contrast against light track */
+  --scrollbar-thumb-bg: var(--color-base-40);
+  --scrollbar-active-thumb-bg: var(--color-base-50);
+
+  /* Inverted accent text: dark on accent for toggles/switches */
+  --text-on-accent-inverted: var(--wb-fg);
 }
 
 /* -- Shared (resolves per-variant via cascade) ---------------------------- */
@@ -698,16 +734,29 @@ body {
   border-color: var(--hr-color);
 }
 
-/* Settings nav: accent on active item */
+/* Settings nav: accent on active item (important to override Obsidian internals) */
+.modal-container .vertical-tab-nav-item.is-active,
 .vertical-tab-nav-item.is-active {
-  color: var(--text-on-accent);
-  background: var(--interactive-accent);
+  color: var(--text-on-accent) !important;
+  background: var(--interactive-accent) !important;
+}
+
+.modal-container .vertical-tab-nav-item.is-active .vertical-tab-nav-item-icon,
+.vertical-tab-nav-item.is-active .vertical-tab-nav-item-icon {
+  color: var(--text-on-accent) !important;
 }
 
 /* Suggestion items (command palette, quick switcher) */
 .suggestion-item.is-selected {
-  background: rgba(184, 82, 46, 0.12);
   color: var(--text-normal);
+}
+
+.theme-dark .suggestion-item.is-selected {
+  background: rgba(184, 82, 46, 0.12);
+}
+
+.theme-light .suggestion-item.is-selected {
+  background: rgba(184, 82, 46, 0.18);
 }
 
 /* Graph view node focus ring */
@@ -716,9 +765,14 @@ body {
 }
 
 /* Search match highlight */
-.search-result-file-matched-text {
+.theme-dark .search-result-file-matched-text {
   color: var(--wb-amber);
   background: rgba(255, 180, 84, 0.12);
+}
+
+.theme-light .search-result-file-matched-text {
+  color: var(--wb-amber);
+  background: rgba(255, 180, 84, 0.22);
 }
 
 /* Metadata properties: warm hover */
@@ -730,6 +784,12 @@ body {
 .tree-item-flair {
   color: var(--text-faint);
   font-size: 0.75em;
+}
+
+/* Dropdowns / selects: visible border in light mode */
+.theme-light select.dropdown,
+.theme-light .dropdown {
+  border: 1px solid var(--color-base-25);
 }
 
 /* -- Prism.js token overrides (reading view) ------------------------------ */

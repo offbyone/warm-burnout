@@ -12,12 +12,13 @@ See the root [`AGENTS.md`](../AGENTS.md) for the canonical palette, design princ
 
 ## CSS Architecture
 
-The theme uses a four-layer CSS custom property system:
+The theme uses a five-layer CSS custom property system:
 
-1. **Palette layer** (`--wb-*`): Canonical hex values inside `.theme-dark` / `.theme-light`. Only place raw hex appears. Test harness reads from these.
-2. **Base mapping**: Maps `--wb-*` into Obsidian's `--color-base-*` ramp (13 steps) and `--color-*` extended colors.
-3. **Code syntax**: `--code-*` variables mapped to `--wb-*` for both CodeMirror 6 and Prism.js. Additional `.token.*` rules for reading view.
-4. **Warmth tweaks**: Warm shadows, scrollbar tints, softer radii. No layout changes.
+1. **Font declarations**: `@font-face` for Inter (text/interface) and Geist Mono (code). Loaded from `fonts/` directory via relative URL. Falls back to system fonts.
+2. **Palette layer** (`--wb-*`): Canonical hex values inside `.theme-dark` / `.theme-light`. Only place raw hex appears. Test harness reads from these.
+3. **Base mapping**: Maps `--wb-*` into Obsidian's `--color-base-*` ramp (13 steps) and `--color-*` extended colors.
+4. **Code syntax**: `--code-*` variables mapped to `--wb-*` for both CodeMirror 6 and Prism.js. Additional `.token.*` rules for reading view.
+5. **Warmth tweaks**: Warm shadows, scrollbar tints, softer radii. No layout changes.
 
 ## Color Variable Extraction
 
@@ -33,7 +34,7 @@ H1 through H6 are mapped to palette materials by visual weight: amber, burnt ora
 
 ## Distribution
 
-The theme is distributed via a mirror repo (`felipefdl/warm-burnout-obsidian`) that CI syncs on tag push. The Obsidian community directory pulls from that mirror. Source of truth is always this monorepo.
+The theme is distributed via a mirror repo (`felipefdl/warm-burnout-obsidian`) that CI syncs on tag push. The mirror receives `theme.css`, `manifest.json`, `README.md`, `screenshot.png`, `fonts/`, `screenshots/`, and `LICENSE`. The Obsidian community directory pulls from that mirror. Source of truth is always this monorepo.
 
 ## File Structure
 
@@ -41,8 +42,19 @@ The theme is distributed via a mirror repo (`felipefdl/warm-burnout-obsidian`) t
 obsidian/
   theme.css        # Single CSS file, both dark + light variants
   manifest.json    # Obsidian theme manifest
-  README.md        # Install instructions
+  README.md        # Install instructions, screenshots, feature docs
   AGENTS.md        # This file
+  screenshot.png   # Community theme directory screenshot
+  fonts/
+    InterVariable.woff2      # Inter variable font (interface/body text)
+    GeistMono[wght].woff2    # Geist Mono variable font (code blocks)
+  screenshots/
+    callouts-dark.png        # Callout showcase, dark mode
+    callouts-light.png       # Callout showcase, light mode
+    headings-dark.png        # Heading gradient showcase, dark mode
+    headings-light.png       # Heading gradient showcase, light mode
+    code-dark.png            # Syntax highlighting showcase, dark mode
+    code-light.png           # Syntax highlighting showcase, light mode
 ```
 
 ## Rules

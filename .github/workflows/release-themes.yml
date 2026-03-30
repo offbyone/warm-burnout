@@ -119,9 +119,10 @@ jobs:
       - name: Package Obsidian
         run: |
           cd obsidian
-          zip -j ../warm-burnout-obsidian.zip \
+          zip -r ../warm-burnout-obsidian.zip \
             theme.css \
-            manifest.json
+            manifest.json \
+            fonts/
 
       - name: Package JetBrains
         run: |
@@ -178,6 +179,8 @@ jobs:
           cp obsidian/manifest.json mirror/
           cp obsidian/README.md mirror/
           cp obsidian/screenshot.png mirror/
+          cp -r obsidian/fonts mirror/
+          cp -r obsidian/screenshots mirror/
           cp LICENSE mirror/
 
           cd mirror
