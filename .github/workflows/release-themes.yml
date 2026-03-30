@@ -177,6 +177,7 @@ jobs:
           cp obsidian/theme.css mirror/
           cp obsidian/manifest.json mirror/
           cp obsidian/README.md mirror/
+          cp obsidian/screenshot.png mirror/
           cp LICENSE mirror/
 
           cd mirror

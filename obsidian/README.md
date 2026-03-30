@@ -29,7 +29,7 @@ Full community theme for Obsidian with dark and light variants. Warm palette, co
 
 ## Palette
 
-Both variants derive from the canonical Warm Burnout palette defined in the root [`AGENTS.md`](../AGENTS.md).
+Both variants derive from the canonical Warm Burnout palette defined in the [main repository](https://github.com/felipefdl/warm-burnout).
 
 Dark background: `#1a1510`. Light background: `#F5EDE0`. Accent: `#b8522e` (copper rust).
 

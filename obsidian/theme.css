@@ -69,13 +69,59 @@
   --text-selection: rgba(245, 197, 110, 0.2);
   --text-highlight-bg: rgba(245, 197, 110, 0.15);
 
+  /* Text hierarchy */
+  --text-normal: var(--wb-fg);
+  --text-muted: var(--color-base-60);
+  --text-faint: var(--color-base-50);
+  --text-on-accent: #f5ede0;
+  --text-accent: var(--wb-accent);
+  --text-accent-hover: #c4603a;
+
+  /* Links */
+  --link-color: var(--wb-accent);
+  --link-color-hover: #c4603a;
+  --link-external-color: var(--wb-aged-brass);
+  --link-external-color-hover: var(--wb-amber);
+  --link-unresolved-color: var(--color-base-50);
+  --link-unresolved-opacity: 0.8;
+
+  /* Cursor */
+  --cursor-color: var(--wb-cursor);
+
+  /* Emphasis */
+  --bold-color: var(--wb-fg);
+  --italic-color: var(--color-base-70);
+
+  /* Inline code */
+  --code-size: 0.9em;
+
+  /* Blockquotes */
+  --blockquote-border-color: var(--color-base-30);
+
+  /* Lists */
+  --list-marker-color: var(--color-base-50);
+
+  /* Horizontal rules */
+  --hr-color: var(--color-base-25);
+
+  /* Tables */
+  --table-header-background: var(--color-base-10);
+  --table-header-color: var(--wb-fg);
+  --table-row-even-background: var(--color-base-05);
+  --table-row-odd-background: var(--color-base-00);
+  --table-border-color: var(--color-base-20);
+
+  /* Editor backgrounds */
+  --background-primary: var(--color-base-05);
+  --background-primary-alt: var(--color-base-10);
+
   /* Ribbon (left icon strip) */
-  --ribbon-background: #14120f;
-  --ribbon-background-collapsed: #14120f;
+  --ribbon-background: var(--color-base-00);
+  --ribbon-background-collapsed: var(--color-base-00);
 
   /* Sidebar */
   --background-secondary: #16130f;
-  --background-secondary-alt: #1a1510;
+  --background-secondary-alt: var(--color-base-05);
 
   /* Navigation items */
   --nav-item-color: var(--color-base-60);
@@ -87,30 +133,29 @@
   --nav-item-background-selected: rgba(184, 82, 46, 0.15);
 
   /* Tabs */
-  --tab-background-active: #1a1510;
+  --tab-background-active: var(--color-base-05);
   --tab-text-color: var(--color-base-50);
   --tab-text-color-focused: var(--wb-fg);
   --tab-text-color-focused-active: var(--wb-fg);
   --tab-text-color-focused-active-current: var(--wb-fg);
   --tab-outline-color: transparent;
   --tab-stacked-header-height: 36px;
-  --tab-container-background: #14120f;
+  --tab-container-background: var(--color-base-00);
   --tab-divider-color: transparent;
   --tab-curve: 6px;
 
   /* Titlebar */
-  --titlebar-background: #14120f;
-  --titlebar-background-focused: #14120f;
+  --titlebar-background: var(--color-base-00);
+  --titlebar-background-focused: var(--color-base-00);
   --titlebar-text-color: var(--color-base-60);
 
   /* Status bar */
-  --status-bar-background: #14120f;
+  --status-bar-background: var(--color-base-00);
   --status-bar-text-color: var(--color-base-50);
   --status-bar-border-color: transparent;
 
   /* Dividers and borders */
   --divider-color: rgba(191, 189, 182, 0.06);
-  --tab-outline-color: transparent;
   --prompt-border-color: var(--color-base-25);
   --background-modifier-border: var(--color-base-20);
   --background-modifier-border-hover: var(--color-base-30);
@@ -127,7 +172,7 @@
   --icon-color: var(--color-base-50);
   --icon-color-hover: var(--wb-fg);
   --icon-color-active: var(--wb-accent);
-  --icon-color-focused: var(--color-base-60);
+  --icon-color-focused: var(--color-base-50);
   --icon-opacity: 0.85;
   --icon-opacity-hover: 1;
   --icon-opacity-active: 1;
@@ -142,6 +187,92 @@
   --tag-color-hover: #c4603a;
   --tag-background: rgba(184, 82, 46, 0.1);
   --tag-background-hover: rgba(184, 82, 46, 0.18);
+
+  /* Feedback text */
+  --text-success: var(--wb-dried-sage);
+  --text-warning: var(--wb-amber);
+  --text-error: var(--wb-error);
+
+  /* Callout type colors (RGB triplets for alpha compositing) */
+  --callout-default: 180, 168, 156;
+  --callout-info: 144, 174, 192;
+  --callout-tip: 150, 184, 152;
+  --callout-success: 180, 188, 120;
+  --callout-warning: 255, 180, 84;
+  --callout-error: 244, 144, 144;
+  --callout-bug: 244, 144, 144;
+  --callout-fail: 236, 152, 120;
+  --callout-important: 255, 143, 64;
+  --callout-question: 230, 192, 138;
+  --callout-example: 212, 168, 184;
+  --callout-todo: 184, 82, 46;
+  --callout-quote: 180, 168, 156;
+  --callout-summary: 222, 176, 116;
+
+  /* Graph view */
+  --graph-node: var(--wb-accent);
+  --graph-node-unresolved: var(--color-base-40);
+  --graph-node-focused: var(--wb-amber);
+  --graph-node-tag: var(--wb-dried-sage);
+  --graph-node-attachment: var(--wb-dusty-mauve);
+  --graph-line: var(--color-base-25);
+  --graph-text: var(--color-base-70);
+
+  /* Canvas (6 card colors) */
+  --canvas-color-1: 184, 82, 46;
+  --canvas-color-2: 255, 180, 84;
+  --canvas-color-3: 180, 188, 120;
+  --canvas-color-4: 144, 174, 192;
+  --canvas-color-5: 212, 168, 184;
+  --canvas-color-6: 236, 152, 120;
+  --canvas-dot-pattern: var(--color-base-20);
+
+  /* Inline title */
+  --inline-title-color: var(--wb-amber);
+  --inline-title-weight: 700;
+
+  /* Heading formatting (dim the # markers) */
+  --heading-formatting: var(--color-base-35);
+
+  /* Indentation guides */
+  --indentation-guide-color: var(--color-base-20);
+  --indentation-guide-color-active: var(--color-base-35);
+
+  /* Modal / dialog */
+  --modal-background: var(--color-base-05);
+  --modal-border-color: var(--color-base-20);
+
+  /* Properties / metadata */
+  --metadata-label-text-color: var(--color-base-50);
+  --metadata-input-text-color: var(--wb-fg);
+  --metadata-property-background-hover: var(--color-base-10);
+  --metadata-property-background-active: var(--color-base-20);
+  --metadata-divider-color: var(--color-base-20);
+
+  /* Search */
+  --search-result-background: var(--color-base-10);
+
+  /* Embeds */
+  --embed-background: var(--color-base-05);
+  --embed-border-start: 3px solid var(--color-base-25);
+
+  /* Collapse icons */
+  --collapse-icon-color: var(--color-base-40);
+  --collapse-icon-color-collapsed: var(--color-base-60);
+
+  /* Form fields */
+  --background-modifier-form-field: var(--color-base-10);
+
+  /* Accent as HSL (for computed hover states) */
+  --interactive-accent-hsl: 16, 60%, 45%;
+
+  /* Vault profile */
+  --vault-profile-color: var(--color-base-60);
+  --vault-profile-color-hover: var(--wb-fg);
+
+  /* Monochrome scale (for Obsidian internals) */
+  --mono-rgb-0: 20, 18, 15;
+  --mono-rgb-100: 191, 189, 182;
 }
 
 /* -- Light variant -------------------------------------------------------- */
@@ -209,13 +340,59 @@
   --text-selection: rgba(138, 102, 0, 0.15);
   --text-highlight-bg: rgba(138, 102, 0, 0.12);
 
+  /* Text hierarchy */
+  --text-normal: var(--wb-fg);
+  --text-muted: var(--color-base-60);
+  --text-faint: var(--color-base-50);
+  --text-on-accent: #f5ede0;
+  --text-accent: var(--wb-accent);
+  --text-accent-hover: #a04828;
+
+  /* Links */
+  --link-color: var(--wb-accent);
+  --link-color-hover: #a04828;
+  --link-external-color: var(--wb-aged-brass);
+  --link-external-color-hover: var(--wb-amber);
+  --link-unresolved-color: var(--color-base-50);
+  --link-unresolved-opacity: 0.8;
+
+  /* Cursor */
+  --cursor-color: var(--wb-cursor);
+
+  /* Emphasis */
+  --bold-color: var(--wb-fg);
+  --italic-color: var(--color-base-70);
+
+  /* Inline code */
+  --code-size: 0.9em;
+
+  /* Blockquotes */
+  --blockquote-border-color: var(--color-base-30);
+
+  /* Lists */
+  --list-marker-color: var(--color-base-50);
+
+  /* Horizontal rules */
+  --hr-color: var(--color-base-25);
+
+  /* Tables */
+  --table-header-background: var(--color-base-10);
+  --table-header-color: var(--wb-fg);
+  --table-row-even-background: var(--color-base-05);
+  --table-row-odd-background: var(--color-base-00);
+  --table-border-color: var(--color-base-20);
+
+  /* Editor backgrounds */
+  --background-primary: var(--color-base-00);
+  --background-primary-alt: var(--color-base-05);
+
   /* Ribbon (left icon strip) */
   --ribbon-background: #ebe3d6;
   --ribbon-background-collapsed: #ebe3d6;
 
   /* Sidebar */
   --background-secondary: #efe7da;
-  --background-secondary-alt: #f5ede0;
+  --background-secondary-alt: var(--color-base-00);
 
   /* Navigation items */
   --nav-item-color: var(--color-base-60);
@@ -227,7 +404,7 @@
   --nav-item-background-selected: rgba(184, 82, 46, 0.12);
 
   /* Tabs */
-  --tab-background-active: #f5ede0;
+  --tab-background-active: var(--color-base-00);
   --tab-text-color: var(--color-base-50);
   --tab-text-color-focused: var(--wb-fg);
   --tab-text-color-focused-active: var(--wb-fg);
@@ -250,7 +427,6 @@
 
   /* Dividers and borders */
   --divider-color: rgba(58, 54, 48, 0.08);
-  --tab-outline-color: transparent;
   --prompt-border-color: var(--color-base-25);
   --background-modifier-border: var(--color-base-20);
   --background-modifier-border-hover: var(--color-base-30);
@@ -267,7 +443,7 @@
   --icon-color: var(--color-base-50);
   --icon-color-hover: var(--wb-fg);
   --icon-color-active: var(--wb-accent);
-  --icon-color-focused: var(--color-base-60);
+  --icon-color-focused: var(--color-base-50);
   --icon-opacity: 0.85;
   --icon-opacity-hover: 1;
   --icon-opacity-active: 1;
@@ -282,6 +458,92 @@
   --tag-color-hover: #a04828;
   --tag-background: rgba(184, 82, 46, 0.08);
   --tag-background-hover: rgba(184, 82, 46, 0.14);
+
+  /* Feedback text */
+  --text-success: var(--wb-dried-sage);
+  --text-warning: var(--wb-amber);
+  --text-error: var(--wb-error);
+
+  /* Callout type colors (RGB triplets for alpha compositing) */
+  --callout-default: 84, 76, 64;
+  --callout-info: 40, 84, 100;
+  --callout-tip: 40, 106, 72;
+  --callout-success: 77, 92, 26;
+  --callout-warning: 133, 87, 0;
+  --callout-error: 176, 52, 52;
+  --callout-bug: 176, 52, 52;
+  --callout-fail: 136, 56, 80;
+  --callout-important: 146, 72, 0;
+  --callout-question: 122, 90, 28;
+  --callout-example: 126, 64, 96;
+  --callout-todo: 184, 82, 46;
+  --callout-quote: 84, 76, 64;
+  --callout-summary: 116, 80, 28;
+
+  /* Graph view */
+  --graph-node: var(--wb-accent);
+  --graph-node-unresolved: var(--color-base-40);
+  --graph-node-focused: var(--wb-amber);
+  --graph-node-tag: var(--wb-dried-sage);
+  --graph-node-attachment: var(--wb-dusty-mauve);
+  --graph-line: var(--color-base-25);
+  --graph-text: var(--color-base-70);
+
+  /* Canvas (6 card colors) */
+  --canvas-color-1: 184, 82, 46;
+  --canvas-color-2: 133, 87, 0;
+  --canvas-color-3: 77, 92, 26;
+  --canvas-color-4: 40, 84, 100;
+  --canvas-color-5: 126, 64, 96;
+  --canvas-color-6: 136, 56, 80;
+  --canvas-dot-pattern: var(--color-base-20);
+
+  /* Inline title */
+  --inline-title-color: var(--wb-amber);
+  --inline-title-weight: 700;
+
+  /* Heading formatting (dim the # markers) */
+  --heading-formatting: var(--color-base-35);
+
+  /* Indentation guides */
+  --indentation-guide-color: var(--color-base-20);
+  --indentation-guide-color-active: var(--color-base-35);
+
+  /* Modal / dialog */
+  --modal-background: var(--color-base-00);
+  --modal-border-color: var(--color-base-20);
+
+  /* Properties / metadata */
+  --metadata-label-text-color: var(--color-base-50);
+  --metadata-input-text-color: var(--wb-fg);
+  --metadata-property-background-hover: var(--color-base-10);
+  --metadata-property-background-active: var(--color-base-20);
+  --metadata-divider-color: var(--color-base-20);
+
+  /* Search */
+  --search-result-background: var(--color-base-10);
+
+  /* Embeds */
+  --embed-background: var(--color-base-05);
+  --embed-border-start: 3px solid var(--color-base-25);
+
+  /* Collapse icons */
+  --collapse-icon-color: var(--color-base-40);
+  --collapse-icon-color-collapsed: var(--color-base-60);
+
+  /* Form fields */
+  --background-modifier-form-field: var(--color-base-10);
+
+  /* Accent as HSL (for computed hover states) */
+  --interactive-accent-hsl: 16, 60%, 45%;
+
+  /* Vault profile */
+  --vault-profile-color: var(--color-base-60);
+  --vault-profile-color-hover: var(--wb-fg);
+
+  /* Monochrome scale (for Obsidian internals) */
+  --mono-rgb-0: 245, 237, 224;
+  --mono-rgb-100: 58, 54, 48;
 }
 
 /* -- Shared (resolves per-variant via cascade) ---------------------------- */
@@ -320,6 +582,36 @@ body {
   --radius-s: 4px;
   --radius-m: 6px;
   --radius-l: 10px;
+
+  /* Link decoration */
+  --link-decoration: none;
+  --link-decoration-hover: underline;
+  --link-external-decoration: underline;
+  --link-external-decoration-hover: underline;
+  --link-unresolved-decoration-style: dashed;
+
+  /* Callout refinements */
+  --callout-radius: var(--radius-m);
+  --callout-content-background: transparent;
+
+  /* Blockquote refinements */
+  --blockquote-border-thickness: 3px;
+  --blockquote-font-style: normal;
+
+  /* Indentation guide width */
+  --indentation-guide-width: 1px;
+
+  /* Modal radius */
+  --modal-radius: var(--radius-l);
+
+  /* Embed refinements */
+  --embed-font-style: normal;
+
+  /* Tooltip */
+  --tooltip-bg: var(--color-base-10);
+
+  /* Accent inverted (for toggled switches in some UI states) */
+  --text-on-accent-inverted: var(--color-base-00);
 }
 
 /* -- UI chrome refinements ------------------------------------------------ */
@@ -329,6 +621,21 @@ body {
 .workspace-ribbon .clickable-icon {
   border-radius: var(--radius-m);
   transition: background 0.15s, color 0.15s;
+}
+
+/* Titlebar icons: consistent color regardless of pane focus */
+.titlebar-button-container .clickable-icon,
+.workspace-tab-header-spacer .clickable-icon,
+.mod-top .workspace-tab-header-inner-icon {
+  color: var(--wb-fg) !important;
+  opacity: 1 !important;
+}
+
+.titlebar-button-container .clickable-icon:hover,
+.workspace-tab-header-spacer .clickable-icon:hover,
+.mod-top .workspace-tab-header-inner-icon:hover {
+  color: var(--icon-color-hover) !important;
+  opacity: var(--icon-opacity-hover) !important;
 }
 
 /* Tab bar: active tab stands out with bottom accent border */
@@ -367,6 +674,62 @@ body {
 /* Vault name in sidebar */
 .nav-buttons-container + .tree-item .nav-folder-title-content {
   font-weight: 600;
+}
+
+/* Inline code: warm background tint */
+.cm-s-obsidian span.cm-inline-code,
+.markdown-rendered code {
+  background: var(--color-base-10);
+  color: var(--wb-coral);
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  font-size: var(--code-size);
+}
+
+/* Blockquote: warm left border */
+.markdown-rendered blockquote {
+  border-left: 3px solid var(--blockquote-border-color);
+  padding-left: 1em;
+  color: var(--text-muted);
+}
+
+/* Horizontal rule: warm, subtle */
+.markdown-rendered hr {
+  border-color: var(--hr-color);
+}
+
+/* Settings nav: accent on active item */
+.vertical-tab-nav-item.is-active {
+  color: var(--text-on-accent);
+  background: var(--interactive-accent);
+}
+
+/* Suggestion items (command palette, quick switcher) */
+.suggestion-item.is-selected {
+  background: rgba(184, 82, 46, 0.12);
+  color: var(--text-normal);
+}
+
+/* Graph view node focus ring */
+.graph-view.color-fill-focused {
+  color: var(--wb-amber);
+}
+
+/* Search match highlight */
+.search-result-file-matched-text {
+  color: var(--wb-amber);
+  background: rgba(255, 180, 84, 0.12);
+}
+
+/* Metadata properties: warm hover */
+.metadata-property:hover {
+  background: var(--metadata-property-background-hover);
+}
+
+/* Tree item flair (counts, badges) */
+.tree-item-flair {
+  color: var(--text-faint);
+  font-size: 0.75em;
 }
 
 /* -- Prism.js token overrides (reading view) ------------------------------ */
