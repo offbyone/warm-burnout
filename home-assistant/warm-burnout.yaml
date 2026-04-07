@@ -4,8 +4,8 @@ Warm Burnout:
       # ── Text ──
       primary-text-color: "#bfbdb6"
       secondary-text-color: "#ada69c"
-      text-primary-color: "#bfbdb6"
-      text-light-primary-color: "#bfbdb6"
+      text-primary-color: "#FAF6F0"
+      text-light-primary-color: "#FAF6F0"
       disabled-text-color: "rgba(191, 189, 182, 0.5)"
 
       # ── Interface ──
@@ -63,7 +63,7 @@ Warm Burnout:
       rgb-accent-color: "184, 82, 46"
       rgb-primary-text-color: "191, 189, 182"
       rgb-secondary-text-color: "173, 166, 156"
-      rgb-text-primary-color: "191, 189, 182"
+      rgb-text-primary-color: "250, 246, 240"
       rgb-card-background-color: "31, 29, 23"
 
       # ── Sidebar ──
@@ -116,8 +116,8 @@ Warm Burnout:
       mdc-theme-secondary: "#b8522e"
       mdc-theme-background: "#1a1510"
       mdc-theme-surface: "#1f1d17"
-      mdc-theme-on-primary: "#bfbdb6"
-      mdc-theme-on-secondary: "#bfbdb6"
+      mdc-theme-on-primary: "#FAF6F0"
+      mdc-theme-on-secondary: "#FAF6F0"
       mdc-theme-on-surface: "#bfbdb6"
       mdc-theme-text-primary-on-background: "#bfbdb6"
       mdc-theme-text-secondary-on-background: "#ada69c"
@@ -226,8 +226,8 @@ Warm Burnout:
       # ── Text ──
       primary-text-color: "#3a3630"
       secondary-text-color: "#5c5750"
-      text-primary-color: "#3a3630"
-      text-light-primary-color: "#3a3630"
+      text-primary-color: "#FAF6F0"
+      text-light-primary-color: "#FAF6F0"
       disabled-text-color: "rgba(58, 54, 48, 0.5)"
 
       # ── Interface ──
@@ -285,7 +285,7 @@ Warm Burnout:
       rgb-accent-color: "184, 82, 46"
       rgb-primary-text-color: "58, 54, 48"
       rgb-secondary-text-color: "92, 87, 80"
-      rgb-text-primary-color: "58, 54, 48"
+      rgb-text-primary-color: "250, 246, 240"
       rgb-card-background-color: "250, 246, 240"
 
       # ── Sidebar ──
