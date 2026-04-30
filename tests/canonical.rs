@@ -1,10 +1,10 @@
 mod common;
 
 use common::{
-  ghostty_ansi_color, ghostty_color, hex_to_lower, home_assistant_color, iterm2_color, jetbrains_attribute,
-  jetbrains_color, nvim_palette_color, obsidian_color, starship_palette_color, tmux_option_value, tmux_style_bg,
-  tmux_style_fg, vscode_color, warp_ansi_color, warp_color, windows_terminal_color, xcode_color, xcode_syntax_color,
-  zed_editor_color, zellij_color,
+  alacritty_color, ghostty_ansi_color, ghostty_color, hex_to_lower, home_assistant_color, iterm2_color,
+  jetbrains_attribute, jetbrains_color, nvim_palette_color, obsidian_color, starship_palette_color, tmux_option_value,
+  tmux_style_bg, tmux_style_fg, vscode_color, warp_ansi_color, warp_color, windows_terminal_color, xcode_color,
+  xcode_syntax_color, zed_editor_color, zellij_color,
 };
 
 fn zsh_foreground(src: &str) -> Option<String> {
@@ -500,6 +500,84 @@ fn light_background_nvim_matches_zed() {
     "editor.background",
   );
   assert_eq!(nvim, zed, "light background: nvim={nvim} zed={zed}");
+}
+
+// -- Alacritty cross-platform consistency --
+//
+// Alacritty mirrors the Ghostty palette verbatim. Pin background, foreground,
+// and cursor to the nvim palette and Ghostty so the warm core can never drift.
+
+const ALACRITTY_DARK: &str = include_str!("../alacritty/warm-burnout-dark.toml");
+const ALACRITTY_LIGHT: &str = include_str!("../alacritty/warm-burnout-light.toml");
+
+#[test]
+fn dark_background_alacritty_matches_nvim() {
+  let alac = alacritty_color(ALACRITTY_DARK, "colors.primary.background");
+  let nvim = nvim_palette_color(nvim_dark_block(), "bg");
+  assert_eq!(alac, nvim, "dark background: alacritty={alac} nvim={nvim}");
+}
+
+#[test]
+fn light_background_alacritty_matches_nvim() {
+  let alac = alacritty_color(ALACRITTY_LIGHT, "colors.primary.background");
+  let nvim = nvim_palette_color(nvim_light_block(), "bg");
+  assert_eq!(alac, nvim, "light background: alacritty={alac} nvim={nvim}");
+}
+
+#[test]
+fn dark_foreground_alacritty_matches_nvim() {
+  let alac = alacritty_color(ALACRITTY_DARK, "colors.primary.foreground");
+  let nvim = nvim_palette_color(nvim_dark_block(), "fg");
+  assert_eq!(alac, nvim, "dark foreground: alacritty={alac} nvim={nvim}");
+}
+
+#[test]
+fn light_foreground_alacritty_matches_nvim() {
+  let alac = alacritty_color(ALACRITTY_LIGHT, "colors.primary.foreground");
+  let nvim = nvim_palette_color(nvim_light_block(), "fg");
+  assert_eq!(alac, nvim, "light foreground: alacritty={alac} nvim={nvim}");
+}
+
+#[test]
+fn dark_cursor_alacritty_matches_nvim() {
+  let alac = alacritty_color(ALACRITTY_DARK, "colors.cursor.cursor");
+  let nvim = nvim_palette_color(nvim_dark_block(), "cursor");
+  assert_eq!(alac, nvim, "dark cursor: alacritty={alac} nvim={nvim}");
+}
+
+#[test]
+fn light_cursor_alacritty_matches_nvim() {
+  let alac = alacritty_color(ALACRITTY_LIGHT, "colors.cursor.cursor");
+  let nvim = nvim_palette_color(nvim_light_block(), "cursor");
+  assert_eq!(alac, nvim, "light cursor: alacritty={alac} nvim={nvim}");
+}
+
+#[test]
+fn dark_background_alacritty_matches_ghostty() {
+  let alac = alacritty_color(ALACRITTY_DARK, "colors.primary.background");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-dark"), "background");
+  assert_eq!(alac, ghostty, "dark background: alacritty={alac} ghostty={ghostty}");
+}
+
+#[test]
+fn light_background_alacritty_matches_ghostty() {
+  let alac = alacritty_color(ALACRITTY_LIGHT, "colors.primary.background");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "background");
+  assert_eq!(alac, ghostty, "light background: alacritty={alac} ghostty={ghostty}");
+}
+
+#[test]
+fn dark_selection_alacritty_matches_ghostty() {
+  let alac = alacritty_color(ALACRITTY_DARK, "colors.selection.background");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-dark"), "selection-background");
+  assert_eq!(alac, ghostty, "dark selection: alacritty={alac} ghostty={ghostty}");
+}
+
+#[test]
+fn light_selection_alacritty_matches_ghostty() {
+  let alac = alacritty_color(ALACRITTY_LIGHT, "colors.selection.background");
+  let ghostty = ghostty_color(include_str!("../ghostty/warm-burnout-light"), "selection-background");
+  assert_eq!(alac, ghostty, "light selection: alacritty={alac} ghostty={ghostty}");
 }
 
 // -- tmux cross-platform consistency --

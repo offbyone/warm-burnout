@@ -316,7 +316,7 @@ fn light_search_focused_match_uses_canonical_keywords_token() {
   );
 }
 
-// -- Footer bar uses canonical comments token --
+// -- Footer bar uses canonical comments token + bg_dim chrome --
 
 #[test]
 fn dark_footer_bar_foreground_is_canonical_comments_token() {
@@ -326,6 +326,16 @@ fn dark_footer_bar_foreground_is_canonical_comments_token() {
 #[test]
 fn light_footer_bar_foreground_is_canonical_comments_token() {
   assert_eq!(alacritty_color(LIGHT, "colors.footer_bar.foreground"), "#544c40");
+}
+
+#[test]
+fn dark_footer_bar_background_is_canonical_bg_dim() {
+  assert_eq!(alacritty_color(DARK, "colors.footer_bar.background"), "#14120f");
+}
+
+#[test]
+fn light_footer_bar_background_is_canonical_bg_dim() {
+  assert_eq!(alacritty_color(LIGHT, "colors.footer_bar.background"), "#ede6da");
 }
 
 // -- Hints use the one sanctioned cool accent (canonical types token) --
@@ -350,6 +360,24 @@ fn dark_hints_end_uses_canonical_types_token() {
 #[test]
 fn light_hints_end_uses_canonical_types_token() {
   assert_eq!(alacritty_color(LIGHT, "colors.hints.end.foreground"), "#285464");
+}
+
+#[test]
+fn dark_hints_end_background_matches_primary_background() {
+  assert_eq!(
+    alacritty_color(DARK, "colors.hints.end.background"),
+    alacritty_color(DARK, "colors.primary.background"),
+    "dark hints.end background should match editor background"
+  );
+}
+
+#[test]
+fn light_hints_end_background_matches_primary_background() {
+  assert_eq!(
+    alacritty_color(LIGHT, "colors.hints.end.background"),
+    alacritty_color(LIGHT, "colors.primary.background"),
+    "light hints.end background should match editor background"
+  );
 }
 
 // -- Background sanity: no pure black, no pure white --
