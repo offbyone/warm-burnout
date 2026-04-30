@@ -1,0 +1,273 @@
+;;; warm-burnout-light-theme.el --- Warm Burnout Light theme -*- lexical-binding: t; -*-
+
+;; Author: Felipe Lima, Chris Rose
+;; URL: https://github.com/felipefdl/warm-burnout
+;; Version: 1.0.0
+;; Package-Requires: ((emacs "29.1"))
+;; Keywords: faces themes
+
+;;; Commentary:
+
+;; Light variant of Warm Burnout. Fully warm palette, minimal blue-spectrum
+;; emission, WCAG AA contrast (>= 4.5:1) for all syntax tokens.
+;; Because your retinas asked nicely.
+
+;;; Code:
+
+(require 'warm-burnout)
+
+(deftheme warm-burnout-light
+  "Warm Burnout Light - warm everywhere, blue nowhere.")
+
+(warm-burnout--with-palette warm-burnout-light-palette
+
+  (custom-theme-set-faces
+   'warm-burnout-light
+
+   ;; --- Core faces ---
+   `(default ((t (:foreground ,fg :background ,bg))))
+   `(cursor ((t (:background ,cursor))))
+   `(region ((t (:background "#D0C8B8"))))
+   `(highlight ((t (:background ,bg-highlight))))
+   `(hl-line ((t (:background ,bg-highlight))))
+   `(fringe ((t (:foreground ,fg-dim :background ,bg))))
+   `(vertical-border ((t (:foreground ,border))))
+   `(border ((t (:foreground ,border))))
+   `(shadow ((t (:foreground ,fg-dim))))
+   `(minibuffer-prompt ((t (:foreground ,func :weight bold))))
+   `(link ((t (:foreground ,info :underline t))))
+   `(link-visited ((t (:foreground ,number :underline t))))
+   `(escape-glyph ((t (:foreground ,regex))))
+   `(homoglyph ((t (:foreground ,regex))))
+   `(match ((t (:background ,bg-search :weight bold))))
+   `(trailing-whitespace ((t (:background ,error))))
+   `(lazy-highlight ((t (:background ,bg-search))))
+
+   ;; --- Line numbers ---
+   `(line-number ((t (:foreground ,fg-gutter :background ,bg))))
+   `(line-number-current-line ((t (:foreground ,fg :background ,bg-highlight :weight bold))))
+
+   ;; --- Search ---
+   `(isearch ((t (:background ,bg-search :foreground ,fg :weight bold))))
+   `(isearch-fail ((t (:background ,error :foreground ,bg))))
+
+   ;; --- Font-lock (syntax) ---
+   `(font-lock-keyword-face ((t (:foreground ,keyword :weight bold))))
+   `(font-lock-function-name-face ((t (:foreground ,func))))
+   `(font-lock-function-call-face ((t (:foreground ,func))))
+   `(font-lock-variable-name-face ((t (:foreground ,member))))
+   `(font-lock-variable-use-face ((t (:foreground ,fg))))
+   `(font-lock-type-face ((t (:foreground ,type :slant italic))))
+   `(font-lock-string-face ((t (:foreground ,string))))
+   `(font-lock-doc-face ((t (:foreground ,comment :slant italic))))
+   `(font-lock-comment-face ((t (:foreground ,comment :slant italic))))
+   `(font-lock-comment-delimiter-face ((t (:foreground ,comment :slant italic))))
+   `(font-lock-constant-face ((t (:foreground ,constant))))
+   `(font-lock-number-face ((t (:foreground ,number))))
+   `(font-lock-builtin-face ((t (:foreground ,member))))
+   `(font-lock-preprocessor-face ((t (:foreground ,keyword :weight bold))))
+   `(font-lock-negation-char-face ((t (:foreground ,operator))))
+   `(font-lock-regexp-grouping-backslash ((t (:foreground ,regex))))
+   `(font-lock-regexp-grouping-construct ((t (:foreground ,regex))))
+   `(font-lock-warning-face ((t (:foreground ,warn :weight bold))))
+   `(font-lock-operator-face ((t (:foreground ,operator))))
+   `(font-lock-property-name-face ((t (:foreground ,property))))
+   `(font-lock-property-use-face ((t (:foreground ,property))))
+   `(font-lock-escape-face ((t (:foreground ,regex))))
+   `(font-lock-delimiter-face ((t (:foreground ,fg))))
+   `(font-lock-bracket-face ((t (:foreground ,fg))))
+   `(font-lock-misc-punctuation-face ((t (:foreground ,fg))))
+
+   ;; --- Mode-line ---
+   `(mode-line ((t (:foreground ,fg :background ,bg-dim :box (:line-width 1 :color ,border)))))
+   `(mode-line-inactive ((t (:foreground ,fg-dim :background ,bg-float :box (:line-width 1 :color ,border)))))
+   `(mode-line-emphasis ((t (:foreground ,keyword :weight bold))))
+   `(mode-line-buffer-id ((t (:foreground ,func :weight bold))))
+
+   ;; --- Completions ---
+   `(completions-common-part ((t (:foreground ,func))))
+   `(completions-first-difference ((t (:foreground ,keyword :weight bold))))
+
+   ;; --- Dired ---
+   `(dired-directory ((t (:foreground ,func :weight bold))))
+   `(dired-symlink ((t (:foreground ,type :slant italic))))
+   `(dired-ignored ((t (:foreground ,fg-dim))))
+
+   ;; --- Errors, warnings ---
+   `(error ((t (:foreground ,error))))
+   `(warning ((t (:foreground ,warn))))
+   `(success ((t (:foreground ,added))))
+
+   ;; --- Diff ---
+   `(diff-added ((t (:foreground ,added :background "#d2d6be"))))
+   `(diff-removed ((t (:foreground ,deleted :background "#eccdc5"))))
+   `(diff-changed ((t (:foreground ,modified :background "#d3d7d5"))))
+   `(diff-header ((t (:foreground ,func :weight bold))))
+   `(diff-file-header ((t (:foreground ,keyword :weight bold))))
+   `(diff-hunk-header ((t (:foreground ,type :slant italic))))
+
+   ;; --- Magit ---
+   `(magit-section-heading ((t (:foreground ,keyword :weight bold))))
+   `(magit-section-highlight ((t (:background ,bg-highlight))))
+   `(magit-diff-added ((t (:foreground ,added :background "#d2d6be"))))
+   `(magit-diff-added-highlight ((t (:foreground ,added :background "#c0caac"))))
+   `(magit-diff-removed ((t (:foreground ,deleted :background "#eccdc5"))))
+   `(magit-diff-removed-highlight ((t (:foreground ,deleted :background "#e8bdb7"))))
+   `(magit-diff-context ((t (:foreground ,fg-dim))))
+   `(magit-diff-context-highlight ((t (:foreground ,fg-dim :background ,bg-highlight))))
+   `(magit-diff-hunk-heading ((t (:foreground ,fg :background ,bg-dim))))
+   `(magit-diff-hunk-heading-highlight ((t (:foreground ,fg :background ,bg-dim :weight bold))))
+   `(magit-branch-local ((t (:foreground ,type))))
+   `(magit-branch-remote ((t (:foreground ,added))))
+   `(magit-branch-current ((t (:foreground ,type :box (:line-width 1 :color ,type)))))
+   `(magit-hash ((t (:foreground ,fg-dim))))
+   `(magit-log-author ((t (:foreground ,func))))
+   `(magit-log-date ((t (:foreground ,comment))))
+   `(magit-tag ((t (:foreground ,decorator :slant italic))))
+
+   ;; --- Org-mode ---
+   `(org-level-1 ((t (:foreground ,keyword :weight bold :height 1.1))))
+   `(org-level-2 ((t (:foreground ,func :weight bold))))
+   `(org-level-3 ((t (:foreground ,type :weight bold))))
+   `(org-level-4 ((t (:foreground ,string :weight bold))))
+   `(org-level-5 ((t (:foreground ,decorator :weight bold))))
+   `(org-level-6 ((t (:foreground ,number :weight bold))))
+   `(org-level-7 ((t (:foreground ,member :weight bold))))
+   `(org-level-8 ((t (:foreground ,regex :weight bold))))
+   `(org-block ((t (:background ,bg-dim))))
+   `(org-block-begin-line ((t (:foreground ,fg-dim :background ,bg-dim))))
+   `(org-block-end-line ((t (:foreground ,fg-dim :background ,bg-dim))))
+   `(org-code ((t (:foreground ,string))))
+   `(org-verbatim ((t (:foreground ,regex))))
+   `(org-date ((t (:foreground ,type :underline t))))
+   `(org-todo ((t (:foreground ,error :weight bold))))
+   `(org-done ((t (:foreground ,added :weight bold))))
+   `(org-headline-done ((t (:foreground ,fg-dim))))
+   `(org-link ((t (:foreground ,info :underline t))))
+   `(org-table ((t (:foreground ,fg))))
+   `(org-formula ((t (:foreground ,number))))
+   `(org-tag ((t (:foreground ,fg-dim :weight normal))))
+   `(org-document-title ((t (:foreground ,keyword :weight bold :height 1.2))))
+   `(org-document-info ((t (:foreground ,fg-dim))))
+
+   ;; --- Markdown ---
+   `(markdown-header-face-1 ((t (:foreground ,keyword :weight bold :height 1.1))))
+   `(markdown-header-face-2 ((t (:foreground ,func :weight bold))))
+   `(markdown-header-face-3 ((t (:foreground ,type :weight bold))))
+   `(markdown-header-face-4 ((t (:foreground ,string :weight bold))))
+   `(markdown-code-face ((t (:foreground ,string :background ,bg-dim))))
+   `(markdown-inline-code-face ((t (:foreground ,string :background ,bg-dim))))
+   `(markdown-link-face ((t (:foreground ,info :underline t))))
+   `(markdown-url-face ((t (:foreground ,fg-dim :underline t))))
+   `(markdown-bold-face ((t (:weight bold))))
+   `(markdown-italic-face ((t (:slant italic))))
+
+   ;; --- Company / Corfu ---
+   `(company-tooltip ((t (:foreground ,fg :background ,bg-float))))
+   `(company-tooltip-selection ((t (:background ,bg-highlight))))
+   `(company-tooltip-common ((t (:foreground ,func :weight bold))))
+   `(company-tooltip-annotation ((t (:foreground ,fg-dim))))
+   `(company-scrollbar-bg ((t (:background ,bg-float))))
+   `(company-scrollbar-fg ((t (:background ,fg-gutter))))
+   `(corfu-default ((t (:foreground ,fg :background ,bg-float))))
+   `(corfu-current ((t (:background ,bg-highlight))))
+   `(corfu-bar ((t (:background ,fg-gutter))))
+
+   ;; --- Vertico / Consult / Marginalia ---
+   `(vertico-current ((t (:background ,bg-highlight))))
+   `(consult-preview-match ((t (:background ,bg-search))))
+   `(marginalia-documentation ((t (:foreground ,fg-dim :slant italic))))
+   `(marginalia-key ((t (:foreground ,keyword))))
+   `(marginalia-file-priv-dir ((t (:foreground ,type))))
+
+   ;; --- Which-key ---
+   `(which-key-key-face ((t (:foreground ,keyword :weight bold))))
+   `(which-key-command-description-face ((t (:foreground ,fg))))
+   `(which-key-group-description-face ((t (:foreground ,type))))
+   `(which-key-separator-face ((t (:foreground ,fg-dim))))
+
+   ;; --- Flycheck / Flymake ---
+   `(flycheck-error ((t (:underline (:style wave :color ,error)))))
+   `(flycheck-warning ((t (:underline (:style wave :color ,warn)))))
+   `(flycheck-info ((t (:underline (:style wave :color ,info)))))
+   `(flymake-error ((t (:underline (:style wave :color ,error)))))
+   `(flymake-warning ((t (:underline (:style wave :color ,warn)))))
+   `(flymake-note ((t (:underline (:style wave :color ,info)))))
+
+   ;; --- LSP ---
+   `(lsp-face-highlight-read ((t (:background ,bg-highlight))))
+   `(lsp-face-highlight-write ((t (:background ,bg-highlight :weight bold))))
+   `(lsp-face-highlight-textual ((t (:background ,bg-highlight))))
+
+   ;; --- diff-hl ---
+   `(diff-hl-insert ((t (:foreground ,added :background "#c0caac"))))
+   `(diff-hl-change ((t (:foreground ,modified :background "#c1cbcf"))))
+   `(diff-hl-delete ((t (:foreground ,deleted :background "#e8bdb7"))))
+
+   ;; --- Rainbow delimiters ---
+   `(rainbow-delimiters-depth-1-face ((t (:foreground ,bracket1))))
+   `(rainbow-delimiters-depth-2-face ((t (:foreground ,bracket2))))
+   `(rainbow-delimiters-depth-3-face ((t (:foreground ,bracket3))))
+   `(rainbow-delimiters-depth-4-face ((t (:foreground ,bracket4))))
+   `(rainbow-delimiters-depth-5-face ((t (:foreground ,bracket5))))
+   `(rainbow-delimiters-depth-6-face ((t (:foreground ,bracket6))))
+   `(rainbow-delimiters-depth-7-face ((t (:foreground ,bracket1))))
+   `(rainbow-delimiters-depth-8-face ((t (:foreground ,bracket2))))
+   `(rainbow-delimiters-depth-9-face ((t (:foreground ,bracket3))))
+   `(rainbow-delimiters-unmatched-face ((t (:foreground ,error :weight bold))))
+
+   ;; --- Tree-sitter ---
+   `(tree-sitter-hl-face:function.call ((t (:foreground ,func))))
+   `(tree-sitter-hl-face:method.call ((t (:foreground ,func))))
+   `(tree-sitter-hl-face:property ((t (:foreground ,property))))
+   `(tree-sitter-hl-face:tag ((t (:foreground ,tag :weight bold))))
+   `(tree-sitter-hl-face:attribute ((t (:foreground ,decorator :slant italic))))
+   `(tree-sitter-hl-face:operator ((t (:foreground ,operator))))
+   `(tree-sitter-hl-face:punctuation ((t (:foreground ,fg))))
+   `(tree-sitter-hl-face:punctuation.bracket ((t (:foreground ,fg))))
+
+   ;; --- Show-paren ---
+   `(show-paren-match ((t (:foreground ,cursor :background ,bg-highlight :weight bold))))
+   `(show-paren-mismatch ((t (:foreground ,bg :background ,error :weight bold))))
+
+   ;; --- Whitespace mode ---
+   `(whitespace-space ((t (:foreground ,fg-gutter))))
+   `(whitespace-tab ((t (:foreground ,fg-gutter))))
+   `(whitespace-newline ((t (:foreground ,fg-gutter))))
+   `(whitespace-trailing ((t (:background ,error))))
+   `(whitespace-indentation ((t (:foreground ,fg-gutter))))
+
+   ;; --- Tab-bar / Tab-line ---
+   `(tab-bar ((t (:foreground ,fg-dim :background ,bg-dim))))
+   `(tab-bar-tab ((t (:foreground ,fg :background ,bg :weight bold))))
+   `(tab-bar-tab-inactive ((t (:foreground ,fg-dim :background ,bg-dim))))
+
+   ;; --- Window divider ---
+   `(window-divider ((t (:foreground ,border))))
+   `(window-divider-first-pixel ((t (:foreground ,border))))
+   `(window-divider-last-pixel ((t (:foreground ,border))))
+
+   ;; --- Info / help ---
+   `(info-title-1 ((t (:foreground ,keyword :weight bold :height 1.1))))
+   `(info-title-2 ((t (:foreground ,func :weight bold))))
+   `(info-title-3 ((t (:foreground ,type :weight bold))))
+   `(info-node ((t (:foreground ,keyword :weight bold :slant italic))))
+
+   ;; --- Compilation ---
+   `(compilation-error ((t (:foreground ,error))))
+   `(compilation-warning ((t (:foreground ,warn))))
+   `(compilation-info ((t (:foreground ,info))))
+   `(compilation-line-number ((t (:foreground ,fg-dim)))))
+
+  (custom-theme-set-variables
+   'warm-burnout-light
+   `(ansi-color-names-vector
+     [,bg ,error ,added ,keyword ,info ,number ,regex ,fg])))
+
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-directory load-file-name)))
+
+(provide-theme 'warm-burnout-light)
+;;; warm-burnout-light-theme.el ends here
