@@ -343,6 +343,14 @@ User-facing text must read like a human wrote it. AI-generated text has recogniz
 
 **General rule:** If a sentence sounds like it could appear in any AI-generated blog post, rewrite it.
 
+### Git and Commits
+
+1. **No `Co-Authored-By` trailers in commits.** This applies to direct commits, PR commits, and squash-merge bodies. If a tool inserts one, strip it before merging. When squash-merging a PR, write the commit body yourself with `gh pr merge --squash --body "..."`; do not let GitHub concatenate per-commit messages with their trailers.
+2. **No AI or tooling references in commits, PRs, reviews, issue comments, or any public surface.** No mentions of Claude, Claude Code, ChatGPT, Copilot, "AI", "LLM", or any other generator. The audience is developers; the tooling stays invisible.
+3. **Commit messages**: conventional commits with scope. Format: `type(scope): short description`. Scope is the platform or area (`vim`, `nvim`, `vscode`, `tests`, `site`, etc.). Subject under 72 characters, lowercase, no trailing period. Types: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `perf`.
+4. **Branch names**: `feature/`, `fix/`, `chore/`, `refactor/`, `test/`, `perf/`, `docs/` prefix with kebab-case (`feature/add-vim`, `fix/light-gutter-drift`).
+5. **PR titles**: human-readable summary, not conventional-commit format. Capitalize the first word. Reads like a one-line changelog entry.
+
 ### Code Quality
 
 1. Always run `cargo fmt` after modifying Rust files.
