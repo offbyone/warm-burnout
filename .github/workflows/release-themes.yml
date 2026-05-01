@@ -151,6 +151,14 @@ jobs:
             manifest.json \
             fonts/
 
+      - name: Package Emacs
+        run: |
+          cd emacs
+          zip -j ../warm-burnout-emacs.zip \
+            warm-burnout.el \
+            warm-burnout-dark-theme.el \
+            warm-burnout-light-theme.el
+
       - name: Package JetBrains
         run: |
           cd jetbrains
@@ -177,6 +185,7 @@ jobs:
             warm-burnout-eza.zip
             warm-burnout-home-assistant.yaml
             warm-burnout-obsidian.zip
+            warm-burnout-emacs.zip
             jetbrains/warm-burnout-theme.jar
 
       - name: Publish to JetBrains Marketplace

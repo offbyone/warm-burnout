@@ -50,6 +50,7 @@ warm-burnout/
     nvim.rs                   # Neovim theme validation tests
     vim.rs                    # Vim theme validation tests
     obsidian.rs               # Obsidian theme validation tests
+    emacs.rs                  # Emacs theme validation tests
   .github/workflows/
     validate.yml              # CI: run theme validation on push/PR
     release-vscode.yml        # VS Code extension release workflow
@@ -173,6 +174,12 @@ warm-burnout/
     screenshot.png             # Community directory screenshot
     fonts/                     # Bundled fonts (Inter, Geist Mono)
     screenshots/               # README screenshots (dark + light)
+  emacs/                       # Emacs theme (Emacs 29.1+)
+    warm-burnout.el            # Shared palette definitions, doom-themes integration
+    warm-burnout-dark-theme.el # Dark variant (deftheme)
+    warm-burnout-light-theme.el # Light variant (deftheme)
+    README.md                  # Emacs install instructions
+    AGENTS.md                  # Emacs-specific agent rules
   screenshots/                # Theme preview screenshots
     AGENTS.md                 # Screenshot-specific agent rules
     generate.mjs              # Playwright script to render HTML -> PNG

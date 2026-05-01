@@ -140,6 +140,7 @@ Inspired by materials that age well. Unlike your eyes.
 | Home Assistant | Available | [`home-assistant/`](home-assistant/) |
 | eza | Available | [`eza/`](eza/) |
 | Obsidian | Available | [`obsidian/`](obsidian/) |
+| Emacs | Available | [`emacs/`](emacs/) |
 
 Each platform lives in its own directory with its own README, build process, and release workflow.
 
