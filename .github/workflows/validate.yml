@@ -24,8 +24,10 @@ jobs:
       - name: Check formatting
         run: cargo fmt -- --check
 
+      - uses: cargo-bins/cargo-binstall@main
+
       - name: Install rumdl
-        run: cargo install rumdl --version 0.1.84 --locked
+        run: cargo binstall rumdl --version 0.1.84 --no-confirm
 
       - name: Check Markdown
         run: |
