@@ -52,8 +52,8 @@ Then set `dotspacemacs-themes '(warm-burnout-dark)`.
 
 ## Variants
 
-- `warm-burnout-dark` — AAA contrast (>= 7.0:1), warm dark background
-- `warm-burnout-light` — AA contrast (>= 4.5:1), warm parchment background
+- `warm-burnout-dark` -- AAA contrast (>= 7.0:1), warm dark background
+- `warm-burnout-light` -- AA contrast (>= 4.5:1), warm parchment background
 
 Switch with `M-x load-theme`.
 

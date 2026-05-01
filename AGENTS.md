@@ -174,7 +174,7 @@ warm-burnout/
     screenshot.png             # Community directory screenshot
     fonts/                     # Bundled fonts (Inter, Geist Mono)
     screenshots/               # README screenshots (dark + light)
-  emacs/                       # Emacs theme (Emacs 27.1+)
+  emacs/                       # Emacs theme (Emacs 29.1+)
     warm-burnout.el            # Shared palette definitions, doom-themes integration
     warm-burnout-dark-theme.el # Dark variant (deftheme)
     warm-burnout-light-theme.el # Light variant (deftheme)

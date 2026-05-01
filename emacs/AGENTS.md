@@ -43,7 +43,7 @@ emacs/
 
 ## Doom Themes Integration
 
-When `doom-themes` is loaded, `warm-burnout.el` registers face overrides via `doom-themes-set-faces`. This allows solaire-mode and other doom extensions to work correctly. The integration is passive (only activates if doom-themes is present).
+When `doom-themes` is loaded, `warm-burnout.el` registers face overrides via `doom-themes-set-faces` so solaire-mode and other doom extensions pick up the right colors. The integration is passive (only activates if doom-themes is present).
 
 ## Color Rules
 
