@@ -26,7 +26,6 @@
     (bg-dim       . "#14120f")
     (bg-float     . "#1f1d17")
     (bg-highlight . "#222018")
-    (bg-visual    . "#8aa8b840")
     (bg-search    . "#4c4126")
 
     (fg           . "#bfbdb6")
@@ -35,7 +34,6 @@
 
     (comment      . "#b4a89c")
     (cursor       . "#f5c56e")
-    (accent       . "#b8522e")
 
     (keyword      . "#ff8f40")
     (func         . "#ffb454")
@@ -53,14 +51,10 @@
     (error        . "#f49090")
     (warn         . "#b8522e")
     (info         . "#90aec0")
-    (hint         . "#b4a89c")
 
     (added        . "#70bf56")
     (modified     . "#73b8ff")
     (deleted      . "#f26d78")
-    (diff-add     . "#70bf561f")
-    (diff-change  . "#73b8ff1f")
-    (diff-delete  . "#f26d781f")
 
     (border       . "#2a2520")
     (bracket1     . "#e6c08a")
@@ -76,7 +70,6 @@
     (bg-dim       . "#EDE6DA")
     (bg-float     . "#F0E8DC")
     (bg-highlight . "#E8E0D4")
-    (bg-visual    . "#8aa8b840")
     (bg-search    . "#E0C890")
 
     (fg           . "#3a3630")
@@ -85,7 +78,6 @@
 
     (comment      . "#544c40")
     (cursor       . "#8a6600")
-    (accent       . "#b8522e")
 
     (keyword      . "#924800")
     (func         . "#855700")
@@ -103,14 +95,10 @@
     (error        . "#b03434")
     (warn         . "#b8522e")
     (info         . "#285464")
-    (hint         . "#544c40")
 
     (added        . "#226414")
     (modified     . "#2868a0")
     (deleted      . "#c43040")
-    (diff-add     . "#2264142a")
-    (diff-change  . "#2868a02a")
-    (diff-delete  . "#c430402a")
 
     (border       . "#DDD6CA")
     (bracket1     . "#7a5a1c")
@@ -121,10 +109,6 @@
     (bracket6     . "#286a48"))
   "Light variant palette for Warm Burnout.")
 
-(defun warm-burnout--get (palette key)
-  "Get color KEY from PALETTE alist."
-  (cdr (assq key palette)))
-
 (defmacro warm-burnout--with-palette (palette &rest body)
   "Bind all palette colors from PALETTE and execute BODY.
 Each key in the palette becomes a local variable."
@@ -134,28 +118,33 @@ Each key in the palette becomes a local variable."
                  (symbol-value palette))
      ,@body))
 
-;; Doom themes integration - called after theme is loaded
+(defconst warm-burnout--doom-overrides
+  '((font-lock-keyword-face       keyword  (:weight bold))
+    (font-lock-function-name-face func     nil)
+    (font-lock-type-face          type     (:slant italic))
+    (font-lock-string-face        string   nil)
+    (font-lock-comment-face       comment  (:slant italic))
+    (font-lock-constant-face      constant nil))
+  "Faces re-applied for doom-themes integration.
+Each entry is (FACE PALETTE-KEY EXTRA-ATTRS).")
+
 (defun warm-burnout--doom-integrate (theme)
-  "Apply doom-themes face overrides for THEME if doom-themes is available."
-  (when (and (fboundp 'doom-themes-set-faces)
+  "Re-apply core font-lock faces from the palette for THEME.
+Hooked to `enable-theme-functions'; runs on every theme enable, no-ops unless
+doom-themes is loaded and THEME is a Warm Burnout variant. Pulling from the
+shared palette keeps doom users on the same hex values as everyone else."
+  (when (and (featurep 'doom-themes)
              (memq theme '(warm-burnout-dark warm-burnout-light)))
-    (pcase theme
-      ('warm-burnout-dark
-       (doom-themes-set-faces 'warm-burnout-dark
-         '(font-lock-keyword-face :foreground "#ff8f40" :weight bold)
-         '(font-lock-function-name-face :foreground "#ffb454")
-         '(font-lock-type-face :foreground "#90aec0" :slant italic)
-         '(font-lock-string-face :foreground "#b4bc78")
-         '(font-lock-comment-face :foreground "#b4a89c" :slant italic)
-         '(font-lock-constant-face :foreground "#d4a8b8")))
-      ('warm-burnout-light
-       (doom-themes-set-faces 'warm-burnout-light
-         '(font-lock-keyword-face :foreground "#924800" :weight bold)
-         '(font-lock-function-name-face :foreground "#855700")
-         '(font-lock-type-face :foreground "#285464" :slant italic)
-         '(font-lock-string-face :foreground "#4d5c1a")
-         '(font-lock-comment-face :foreground "#544c40" :slant italic)
-         '(font-lock-constant-face :foreground "#7e4060"))))))
+    (let ((palette (if (eq theme 'warm-burnout-dark)
+                       warm-burnout-dark-palette
+                     warm-burnout-light-palette)))
+      (dolist (entry warm-burnout--doom-overrides)
+        (let* ((face        (nth 0 entry))
+               (palette-key (nth 1 entry))
+               (extra       (nth 2 entry))
+               (color       (cdr (assq palette-key palette)))
+               (spec        (append `(:foreground ,color) extra)))
+          (face-spec-set face `((t ,spec))))))))
 
 (add-hook 'enable-theme-functions #'warm-burnout--doom-integrate)
 
